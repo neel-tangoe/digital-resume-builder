@@ -11,12 +11,16 @@ Rails.application.routes.draw do
     get "sign_up", to: "devise/registrations#new"
     get "forgot_password", to: "devise/passwords#new"
   end
+
+  resources :resumes
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root "home#index"
+  #resources :sessions, only: [:create]
+  
+  root to: "home#index"
 
 
 end

@@ -4,7 +4,7 @@
     <% @resumes.each do |resume| %>
     <div class="col-sm-4 col-md-3">
       <div class="thumbnail">
-        <%= image_tag(resume.avatar.url(:large)) %>
+        <%#= image_tag(resume.avatar.url(:large)) %>
         <div class="caption">
           <h3><%= resume.name %></h3>
           <p><%= resume.general_info %></p>
@@ -19,5 +19,7 @@
     <% end %>
     <% end %>
   </div>
+  <%= link_to 'new', new_resume_path, class: 'btn btn-primary btn-sm' %>
+
 </div>
 

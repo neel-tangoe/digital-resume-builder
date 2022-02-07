@@ -15,12 +15,15 @@ class Resume < ApplicationRecord
 
 
   validates :name, presence: true,
-            length: {minimum: 5}
+            length: {minimum: 3}
   validates :general_info, presence: true,
             length: {minimum: 10}
 
   validates :interests,
             length: {minimum: 3}
+
+  enum gender: ["MALE", "FEMALE"]
+  
   validates :user_id, presence: true
 
 
