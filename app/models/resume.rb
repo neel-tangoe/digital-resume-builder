@@ -26,5 +26,7 @@ class Resume < ApplicationRecord
   
   validates :user_id, presence: true
 
-
+  def to_param
+    [id, name.parameterize].join('-')
+  end
 end

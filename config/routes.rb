@@ -12,7 +12,15 @@ Rails.application.routes.draw do
     get "forgot_password", to: "devise/passwords#new"
   end
 
-  resources :resumes
+  
+  resources :resumes do
+    resources :skills
+    resources :languages
+    resources :projects
+    resources :educations
+    resources :jobs
+
+  end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -20,7 +28,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   #resources :sessions, only: [:create]
   
-  root to: "home#index"
+  root "home#index"
 
 
 end
