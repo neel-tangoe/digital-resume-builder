@@ -1,30 +1,20 @@
-<div class="nested-fields form-horizontal">
+<div class="form-group">
 
-    <div class="col-md-6">
-        <%= f.text_field :date_from, class: 'ever-inputs datetimepicker', placeholder: 'Date from' %>
-        <%= f.text_field :date_to, class: 'ever-inputs datetimepicker', placeholder: 'Date to' %>
+    <div class="col-12 col-sm-6">
+        <%= f.text_field :date_from, class: 'ever-inputs form-control datetimepicker', placeholder: 'Date from' %>
+        <%= f.text_field :date_to, class: 'ever-inputs form-control datetimepicker', placeholder: 'Date to' %>
     </div>
 
-    <div class="col-md-6">
-      <%= f.text_field :level, class: 'ever-inputs', placeholder: 'Level'  %>
-      <%= f.text_field :place, class: 'ever-inputs', placeholder: 'Place'  %>
+    <div class="col-12 col-sm-6">
+      <%= f.text_field :level, class: 'ever-inputs form-control', placeholder: 'Level'  %>
+      <%= f.text_field :place, class: 'ever-inputs form-control', placeholder: 'Place'  %>
     </div>
 
-    <div class="col-md-12">
-      <%= f.text_area :description, class: 'ever-inputs', placeholder: 'Description' %>
+    <div class="col-12 col-sm-6>
+      <%= f.text_area :description, class: 'ever-inputs form-control', placeholder: 'Description' %>
       <%= link_to_remove_association 'remove', f, class: 'btn btn-danger btn-xs pull-right title' %>
     </div>
 
   <hr class="col-md-10 col-md-offset-1">
 
 </div>
-
-<script type="text/javascript">
-  $(function () {
-    $('.datetimepicker').datetimepicker({
-      viewMode: 'years',
-      format: 'MM/YYYY'
-    });
-  });
-</script>
-

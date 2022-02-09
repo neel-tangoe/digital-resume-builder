@@ -22,7 +22,7 @@ class Resume < ApplicationRecord
   validates :interests,
             length: {minimum: 3}
 
-  enum gender: ["MALE", "FEMALE"]
+  enum gender: ["MALE", "FEMALE", "OTHER"]
   
   validates :user_id, presence: true
 
