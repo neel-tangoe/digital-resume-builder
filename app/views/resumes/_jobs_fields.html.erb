@@ -1,19 +1,25 @@
-<div class="nested-fields form-horizontal">
+<div class="nested-fields">
+
+      <div class="col-12 col-sm-6">
+        <div class="form-group">
+          <%= f.date_field :date_from, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date from' %>
+        </div>
+
+      <div class="form-group">
+        <%= f.date_field :date_to, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date to' %>
+      </div>
+
+      <div class="col-12 col-sm-6">
+        <div class="form-group"><%= f.text_field :position, class: 'ever-inputs', placeholder: 'Position'%></div>
+        <div class="form-group"><%= f.text_field :firm, class: 'ever-inputs', placeholder: 'Company'%></div>
+      </div>
+
+      <div class=" col-12 col-sm-6">
+        <div class="form-group"><%= f.text_field :place, class: 'ever-inputs', placeholder: 'Place'  %></div>
+      </div>
 
       <div class="col-md-6">
-        <%= f.text_field :date_from, class: 'ever-inputs datetimepicker', placeholder: 'Date from' %>
-        <%= f.text_field :date_to, class: 'ever-inputs datetimepicker', placeholder: 'Date to' %>
-      </div>
-
-      <div class=" col-md-6">
-
-        <%= f.text_field :position, class: 'ever-inputs', placeholder: 'Position'%>
-        <%= f.text_field :firm, class: 'ever-inputs', placeholder: 'Company'%>
-      </div>
-
-      <div class=" col-md-12">
-        <%= f.text_field :place, class: 'ever-inputs', placeholder: 'Place'  %>
-        <%#= link_to_remove_association 'remove', f, class: 'btn btn-danger btn-xs pull-right title' %>
+        <%= link_to_remove_association 'remove', f, class: 'btn btn-danger btn-xs pull-right title' %>
       </div>
 
   <hr class="col-md-10 col-md-offset-1">

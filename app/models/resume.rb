@@ -7,11 +7,13 @@ class Resume < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :educations, dependent: :destroy
   has_many :awards, dependent: :destroy
+  has_many :jobs, dependent: :destroy
 
   accepts_nested_attributes_for :skills, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :languages, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :projects, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :educations, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :jobs, reject_if: :all_blank, allow_destroy: true
 
 
   validates :name, presence: true,

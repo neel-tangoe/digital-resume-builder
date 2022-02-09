@@ -103,7 +103,21 @@
 
           </div>
         </div>
+      </div>
 
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 card">
+          <div class="text-center"><h4>Job Experience</h4></div>
+          <hr>
+          <div id="jobs">
+            <%= f.fields_for :jobs do |job| %>
+                <%= render 'jobs_fields', f: job %>
+            <% end %>
+            <div class="text-right">
+              <%= link_to_add_association 'Add more', f, :jobs, partial: 'jobs_fields', class: 'add-buttons pull-right' %>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="row">

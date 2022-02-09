@@ -42,6 +42,26 @@
         <% end %>
       <% end %>
     </div>
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <% if @resume.jobs.any? %>
+        <h4>Job Experience</h4>
+        <% @resume.jobs.each do |job| %>
+          <div class="project-sections-jobs"></div>
+          <div class="project-date job-fields">
+            <%= job.date_from&.strip %> -
+            <%= job.date_to&.strip %>
+            <span style="display: block; color: #2E2F30"><strong>Company</strong>: <%= job.firm %></span>
+          </div>
+          <div class="project-fields">
+            <strong>Position</strong>: <%= job.position %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
     <div class="col-md-4 col-md-offset-1">
       <% if @resume.skills.any? %>
         <h4>Skills & Competences</h4>
