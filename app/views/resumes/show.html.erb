@@ -33,6 +33,12 @@
           <div class="project-fields">
             <strong>Role in project</strong>: <%= project.role %>
           </div>
+          <div class="project-fields">
+            <strong>Level</strong>: <%= project.level %>
+          </div>
+          <div class="project-fields">
+            <strong>Team Size</strong>: <%= project.team_size %>
+          </div>
         <% end %>
       <% end %>
     </div>
@@ -84,7 +90,7 @@
       <% if @resume.languages.any? %>
         <h4>Languages</h4>
         <% @resume.languages.each do |language| %>
-          <p><span><%= language.name%>: </span>
+          <p><span><%= language.name%></span>
         <% end %>
       <% end %>
     </div>

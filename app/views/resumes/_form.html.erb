@@ -47,17 +47,27 @@
             </div>
             <div class="col-12 col-sm-6">
               <div class="form-group">
-                <%= f.text_field :birthdate, class: 'ever-inputs form-control', placeholder: 'Birthdate' %>
+                <%= f.date_field :birthdate, class: 'ever-inputs form-control', placeholder: 'Birthdate' %>
               </div>
             </div>
             <div class="col-12 col-sm-6">
               <div class="form-group">
-                <%= f.text_field :address, class: 'ever-inputs form-control', placeholder: 'Country' %>
+                <%= f.text_field :address, class: 'ever-inputs form-control', placeholder: 'Address' %>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <%= f.text_field :country, class: 'ever-inputs form-control', placeholder: 'Country' %>
               </div>
             </div>
             <div class="col-12 col-sm-6">
               <div class="form-group">
                 <%= f.text_field :website, class: 'ever-inputs form-control', placeholder: 'Website' %>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <%= f.text_field :phone_number, class: 'ever-inputs form-control', placeholder: 'Phone Number' %>
               </div>
             </div>
           </div>
@@ -88,7 +98,7 @@
                 <%= render 'project_fields', f: project %>
             <% end %>
             <div class="text-right">
-              <%= link_to_add_association 'Add more', f, :projects, partial: 'project_fields', class: 'add-buttons pull-right' %>
+              <%= link_to_add_association 'Add projects', f, :projects, partial: 'project_fields', class: 'add-buttons pull-right' %>
             </div>
 
           </div>
@@ -123,7 +133,7 @@
               <% end %>
 
               <div class="text-right">
-                <%= link_to_add_association 'Add more', f, :languages, partial: 'languages_fields', class: 'add-buttons pull-right' %>
+                <%= link_to_add_association 'Add more languages', f, :languages, partial: 'languages_fields', class: 'add-buttons pull-right' %>
               </div>
             </div>
         </div>
