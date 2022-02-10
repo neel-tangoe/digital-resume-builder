@@ -4,18 +4,21 @@
         <div class="form-group">
           <%= f.date_field :date_from, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date from' %>
         </div>
-
-      <div class="form-group">
-        <%= f.date_field :date_to, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date to' %>
       </div>
 
       <div class="col-12 col-sm-6">
-        <div class="form-group"><%= f.text_field :position, class: 'ever-inputs', placeholder: 'Position'%></div>
-        <div class="form-group"><%= f.text_field :firm, class: 'ever-inputs', placeholder: 'Company'%></div>
+        <div class="form-group">
+          <%= f.date_field :date_to, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date to' %>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6">
+        <div class="form-group"><%= f.text_field :position, class: 'ever-inputs form-control', placeholder: 'Position'%></div>
+        <div class="form-group"><%= f.text_field :firm, class: 'ever-inputs form-control', placeholder: 'Company'%></div>
       </div>
 
       <div class=" col-12 col-sm-6">
-        <div class="form-group"><%= f.text_field :place, class: 'ever-inputs', placeholder: 'Place'  %></div>
+        <div class="form-group"><%= f.text_field :place, class: 'ever-inputs form-control', placeholder: 'Place'  %></div>
       </div>
 
       <div class="col-md-6">

@@ -11,16 +11,8 @@ Rails.application.routes.draw do
     get "sign_up", to: "devise/registrations#new"
     get "forgot_password", to: "devise/passwords#new"
   end
-
   
-  resources :resumes do
-    resources :skills
-    resources :languages
-    resources :projects
-    resources :educations
-    resources :jobs
-
-  end
+  resources :resumes
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -29,7 +21,6 @@ Rails.application.routes.draw do
   #resources :sessions, only: [:create]
   
   root "home#index"
-
 
 end
 

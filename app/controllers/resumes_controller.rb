@@ -1,26 +1,26 @@
 class ResumesController < ApplicationController
 
   def index
-    @resumes = Resume.where(:user_id => current_user.id )
+    @resumes = current_user.resumes
   end
 
   def show
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find(params[:id])
   end
 
   def new
-    @resume = Resume.new
+    @resume = current_user.resumes.new
     respond_to do |format|
       format.html { render :template => "resumes/_form" }
     end
   end
 
   def edit
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find(params[:id])
   end
 
   def create
-    @resume = Resume.new(resume_params)
+    @resume = current_user.resumes.new(resume_params)
 
     if @resume.save
       redirect_to resume_path(@resume)
@@ -30,7 +30,7 @@ class ResumesController < ApplicationController
   end
 
   def update
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find(params[:id])
 
     if @resume.update(resume_params)
       redirect_to resume_path(@resume)
@@ -40,14 +40,14 @@ class ResumesController < ApplicationController
   end
 
   def destroy
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find(params[:id])
     @resume.destroy
     redirect_to resumes_path
   end
 
   private
   def resume_params
-    params.require(:resume).permit(:name, :general_info, :phone_number, :interests, :user_id, :address, :country, :birthdate, :website,
+    params.require(:resume).permit(:name, :general_info, :phone_number, :interests, :user_id, :address, :country, :birthdate, :gender, :website,
                                    skills_attributes: [:id, :section, :title, :percent, :_destroy],
                                    languages_attributes: [:id, :name, :_destroy],
                                    projects_attributes:[:id, :date_from, :date_to, :client, :description, :technologies, :role, :level, :team_size, :_destroy],
