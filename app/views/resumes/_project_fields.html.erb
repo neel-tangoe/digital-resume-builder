@@ -1,62 +1,60 @@
 <div class="nested-fields">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <div class="form-group"> 
+        <%= f.date_field :date_from, class: 'ever-inputs form-control datetimepicker', placeholder: 'Date from' %>
+      </div>
+    </div>
 
-  <div class="col-12 col-sm-6">
-    <div class="form-group"> 
-      <%= f.date_field :date_from, class: 'ever-inputs form-control datetimepicker', placeholder: 'Date from' %>
+    <div class="col-12 col-sm-6">
+      <div class="form-group"> 
+        <%= f.date_field :date_to, class: 'ever-inputs form-control datetimepicker', placeholder: 'Date to' %>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <div class="form-group"> 
+        <%= f.text_field :client, class: 'ever-inputs form-control', placeholder: 'Client'  %>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <div class="form-group"> 
+        <%= f.text_field :role, class: 'ever-inputs form-control', placeholder: 'Role in project'  %>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <div class="form-group">
+        <%= f.radio_button :level, 'Beginer', :checked => true %> 
+        <%= label :level_beginer, 'Beginer' %>
+        <%= f.radio_button :level, 'Intermediate' %>
+        <%= label :level_intermediate, 'Intermediate' %> <br>
+        <%= f.radio_button :level, 'Advanced' %>
+        <%= label :level_advanced, 'Advanced' %>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <div class="form-group"> 
+        <%= f.number_field :team_size, class: 'ever-inputs form-control', placeholder: 'Number of people involved' %>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <div class="form-group"> 
+        <%= f.text_area :description, class: 'ever-inputs form-control', placeholder: 'Project description' %>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <div class="form-group"> 
+        <%= f.text_area :technologies, class: 'ever-inputs form-control', placeholder: 'Used technologies' %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <%= link_to_remove_association 'remove project', f, class: 'btn btn-danger btn-xs pull-right title' %>
     </div>
   </div>
-
-  <div class="col-12 col-sm-6">
-    <div class="form-group"> 
-      <%= f.date_field :date_to, class: 'ever-inputs form-control datetimepicker', placeholder: 'Date to' %>
-    </div>
-  </div>
-
-  <div class="col-12 col-sm-6">
-    <div class="form-group"> 
-      <%= f.text_field :client, class: 'ever-inputs form-control', placeholder: 'Client'  %>
-    </div>
-  </div>
-
-  <div class="col-12 col-sm-6">
-    <div class="form-group"> 
-      <%= f.text_field :role, class: 'ever-inputs form-control', placeholder: 'Role in project'  %>
-    </div>
-  </div>
-
-  <div class="col-12 col-sm-6">
-    <div class="form-group">
-      <%= f.radio_button :level, 'Beginer', :checked => true %> 
-      <%= label :level_beginer, 'Beginer' %>
-      <%= f.radio_button :level, 'Intermediate' %>
-      <%= label :level_intermediate, 'Intermediate' %> <br>
-      <%= f.radio_button :level, 'Advanced' %>
-      <%= label :level_advanced, 'Advanced' %>
-    </div>
-  </div>
-
-  <div class="col-12 col-sm-6">
-    <div class="form-group"> 
-      <%= f.number_field :team_size, class: 'ever-inputs form-control', placeholder: 'Number of people involved' %>
-    </div>
-  </div>
-
-  <div class="col-12 col-sm-6">
-    <div class="form-group"> 
-      <%= f.text_area :description, class: 'ever-inputs form-control', placeholder: 'Project description' %>
-    </div>
-  </div>
-
-  <div class="col-12 col-sm-6">
-    <div class="form-group"> 
-      <%= f.text_area :technologies, class: 'ever-inputs form-control', placeholder: 'Used technologies' %>
-    </div>
-  </div>
-
-  <div class="col-md-6">
-    <%= link_to_remove_association 'remove project', f, class: 'btn btn-danger btn-xs pull-right title' %>
-  </div>
-
-  <hr class="col-md-10 col-md-offset-1">
-
 </div>

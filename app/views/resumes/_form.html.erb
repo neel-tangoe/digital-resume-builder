@@ -1,157 +1,170 @@
 <div class="container">
+  <div class="card p-4">
   <%= form_for @resume do |f| %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <p class="pull-right links">
-        <%= f.submit class: 'btn btn-primary btn-sm' %>
-        <%= link_to 'Back', :back, class: 'btn btn-default btn-sm' %>
-      </p>
-  <div class="row">
-    <div class="col-md-4">
-      <% if @resume.errors.any? %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <div class="row">
+      <div class="col-md-4">
+        <% if @resume.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this article from being saved:</h2>
             <ul>
               <% @resume.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
+                <li><%= msg %></li>
               <% end %>
             </ul>
           </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="text-center"><h4>Basic information</h4></div>
+      </div>
+      <hr>
+
       <div class="row">
-        <div class="col-md-10 col-md-offset-1 card">
-          <div class="text-center"><h4>Basic information</h4></div>
-          <hr>
-          <div class="row">
-            <div class="col-12 col-sm-6">
-              <div class="form-group">
-                <%= f.text_field :name, class: 'ever-inputs form-control', placeholder: 'Name*' %>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6">
-              <div class="form-group">
-                <%= f.text_area :general_info, class: 'ever-inputs form-control', placeholder: 'General information*' %>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6">
-              <div class="form-group">
-                <%= f.text_field :interests, class: 'ever-inputs form-control', placeholder: 'Interests*' %>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6">
-              <div class="form-group">
-                <% gender = [["Male", "MALE"], ["Female", "FEMALE"], ["Other", "OTHER"]] %>
-                <%= f.select :gender, gender, {}, class: 'ever-inputs form-control', placeholder: 'Gender' %>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6">
-              <div class="form-group">
-                <%= f.date_field :birthdate, class: 'ever-inputs form-control', placeholder: 'Birthdate' %>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6">
-              <div class="form-group">
-                <%= f.text_field :address, class: 'ever-inputs form-control', placeholder: 'Address' %>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6">
-              <div class="form-group">
-                <%= f.text_field :country, class: 'ever-inputs form-control', placeholder: 'Country' %>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6">
-              <div class="form-group">
-                <%= f.text_field :website, class: 'ever-inputs form-control', placeholder: 'Website' %>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6">
-              <div class="form-group">
-                <%= f.text_field :phone_number, class: 'ever-inputs form-control', placeholder: 'Phone Number' %>
-              </div>
-            </div>
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <%= f.text_field :name, class: 'ever-inputs form-control', placeholder: 'Name*' %>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <%= f.text_field :interests, class: 'ever-inputs form-control', placeholder: 'Interests*' %>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <% gender = [["Male", "MALE"], ["Female", "FEMALE"], ["Other", "OTHER"]] %>
+            <%= f.select :gender, gender, {}, class: 'ever-inputs form-control', placeholder: 'Gender' %>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <%= f.date_field :birthdate, class: 'ever-inputs form-control', placeholder: 'Birthdate' %>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <%= f.text_field :address, class: 'ever-inputs form-control', placeholder: 'Address' %>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <%= f.text_field :country, class: 'ever-inputs form-control', placeholder: 'Country' %>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <%= f.text_field :website, class: 'ever-inputs form-control', placeholder: 'Website' %>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <%= f.text_field :phone_number, class: 'ever-inputs form-control', placeholder: 'Phone Number' %>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
+            <%= f.text_area :general_info, class: 'ever-inputs form-control', placeholder: 'General information*' %>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 card">
-          <div id="skills">
-            <div class="text-center"><h4>Skills</h4></div>
-            <hr>
-            <%= f.fields_for :skills do |skill| %>
-                <%= render 'skill_fields', f: skill %>
-            <% end %>
-            <div class="text-right">
-              <%= link_to_add_association 'Add skills', f, :skills, partial: 'skill_fields', class: 'add-buttons pull-right' %>
-            </div>
+    </div>
+ 
+
+    <div class="row pt-3">
+      <div class="col-md-12 col-md-offset-1 card">
+        <div id="skills">
+          <div class="text-center"><h4>Skills</h4></div>
+          <%= f.fields_for :skills do |skill| %>
+              <%= render 'skill_fields', f: skill %>
+          <% end %>
+          <div class="text-right">
+            <%= link_to_add_association 'Add skills', f, :skills, partial: 'skill_fields', class: 'add-buttons pull-right' %>
           </div>
         </div>
       </div>
+    </div>
 
 
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 card">
-          <div class="text-center"><h4>Project Experience</h4></div>
-          <hr>
+    <div class="row pt-3">
+      <div class="col-md-12 col-md-offset-1 card">
+        <div class="text-center"><h4>Project Experience</h4></div>
           <div id="projects">
-            <%= f.fields_for :projects do |project| %>
-                <%= render 'project_fields', f: project %>
-            <% end %>
-            <div class="text-right">
-              <%= link_to_add_association 'Add projects', f, :projects, partial: 'project_fields', class: 'add-buttons pull-right' %>
-            </div>
+          <%= f.fields_for :projects do |project| %>
+              <%= render 'project_fields', f: project %>
+          <% end %>
+          <div class="text-right">
+            <%= link_to_add_association 'Add projects', f, :projects, partial: 'project_fields', class: 'add-buttons pull-right' %>
+          </div>
 
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row pt-3">
+      <div class="col-md-12 col-md-offset-1 card">
+        <div class="text-center"><h4>Job Experience</h4></div>
+        <div id="jobs">
+          <%= f.fields_for :jobs do |job| %>
+            <%= render 'jobs_fields', f: job %>
+          <% end %>
+          <div class="text-right">
+            <%= link_to_add_association 'Add more', f, :jobs, partial: 'jobs_fields', class: 'add-buttons pull-right' %>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 card">
-          <div class="text-center"><h4>Job Experience</h4></div>
-          <hr>
-          <div id="jobs">
-            <%= f.fields_for :jobs do |job| %>
-                <%= render 'jobs_fields', f: job %>
-            <% end %>
-            <div class="text-right">
-              <%= link_to_add_association 'Add more', f, :jobs, partial: 'jobs_fields', class: 'add-buttons pull-right' %>
-            </div>
+    <div class="row pt-3">
+      <div class="col-md-12 col-md-offset-1 card">
+        <div class="text-center"><h4>Education</h4></div>
+        <div id="educations">
+          <%= f.fields_for :educations do |education| %>
+            <%= render 'educations_fields', f:education %>
+          <% end %>
+
+          <div class="text-right">
+            <%= link_to_add_association 'Add more', f, :educations, partial: 'educations_fields', class: 'add-buttons pull-right' %>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 card">
-          <div class="text-center"><h4>Education</h4></div>
-          <hr>
-          <div id="educations">
-            <%= f.fields_for :educations do |education| %>
-              <%= render 'educations_fields', f:education %>
-            <% end %>
-
-            <div class="text-right">
-              <%= link_to_add_association 'Add more', f, :educations, partial: 'educations_fields', class: 'add-buttons pull-right' %>
-            </div>
+    <div class="row pt-3">
+      <div class="col-md-12 col-md-offset-1 card">
+        <div class="text-center"><h4>Languages</h4></div>
+        <div id="languages">
+          <%= f.fields_for :languages do |language| %>
+            <%= render 'languages_fields', f: language %>
+          <% end %>
+          <div class="text-right">
+            <%= link_to_add_association 'Add more languages', f, :languages, partial: 'languages_fields', class: 'add-buttons pull-right' %>
           </div>
         </div>
-
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 card">
-          <div class="text-center"><h4>Languages</h4></div>
-          <hr>
-            <div id="languages">
-              <%= f.fields_for :languages do |language| %>
-                  <%= render 'languages_fields', f: language %>
-              <% end %>
-
-              <div class="text-right">
-                <%= link_to_add_association 'Add more languages', f, :languages, partial: 'languages_fields', class: 'add-buttons pull-right' %>
-              </div>
-            </div>
-        </div>
+    <div class="row pt-4">
+      <div class="col-12">
+        <p class="pull-right links">
+          <%= f.submit class: 'btn btn-primary btn-sm' %>
+          <%= link_to 'Back', :back, class: 'btn btn-secondary btn-sm' %>
+        </p>
       </div>
+    </div>
   <% end %>
-
+</div>
 </div>

@@ -1,30 +1,28 @@
 <div class="nested-fields">
-
-      <div class="col-12 col-sm-6">
-        <div class="form-group">
-          <%= f.date_field :date_from, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date from' %>
-        </div>
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <div class="form-group">
+        <%= f.date_field :date_from, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date from' %>
       </div>
+    </div>
 
-      <div class="col-12 col-sm-6">
-        <div class="form-group">
-          <%= f.date_field :date_to, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date to' %>
-        </div>
+    <div class="col-12 col-sm-6">
+      <div class="form-group">
+        <%= f.date_field :date_to, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date to' %>
       </div>
+    </div>
 
-      <div class="col-12 col-sm-6">
-        <div class="form-group"><%= f.text_field :position, class: 'ever-inputs form-control', placeholder: 'Position'%></div>
-        <div class="form-group"><%= f.text_field :firm, class: 'ever-inputs form-control', placeholder: 'Company'%></div>
-      </div>
+    <div class="col-12 col-sm-6">
+      <div class="form-group"><%= f.text_field :position, class: 'ever-inputs form-control', placeholder: 'Position'%></div>
+      <div class="form-group"><%= f.text_field :firm, class: 'ever-inputs form-control', placeholder: 'Company'%></div>
+    </div>
 
-      <div class=" col-12 col-sm-6">
-        <div class="form-group"><%= f.text_field :place, class: 'ever-inputs form-control', placeholder: 'Place'  %></div>
-      </div>
+    <div class=" col-12 col-sm-6">
+      <div class="form-group"><%= f.text_field :place, class: 'ever-inputs form-control', placeholder: 'Place'  %></div>
+    </div>
 
-      <div class="col-md-6">
-        <%= link_to_remove_association 'remove', f, class: 'btn btn-danger btn-xs pull-right title' %>
-      </div>
-
-  <hr class="col-md-10 col-md-offset-1">
-
+    <div class="col-md-6">
+      <%= link_to_remove_association 'remove', f, class: 'btn btn-danger btn-xs pull-right title' %>
+    </div>
+  <div>
 </div>

@@ -2,21 +2,22 @@ class ResumesController < ApplicationController
 
   def index
     @resumes = current_user.resumes
+  end
+
+  def show
+    @template_type = params[:type]
+    @resume = current_user.resumes.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
-        render :pdf => "demo",
+        render :pdf => 'demo',
                :layout => "pdf.html",
-               :template => "pdf/resume_template.pdf.erb",
+               :template => "resumes/resume_template.pdf.erb",
                :margin => { :top => 10, :bottom => 10, :left => 10, :right => 10},
                :viewport_size => '1280x1024',
                disposition: 'attachment'
       end
     end
-  end
-
-  def show
-    @resume = current_user.resumes.find(params[:id])
   end
 
   def new

@@ -1,23 +1,21 @@
 <div class="nested-fields">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <div class="form-group">
+        <%= f.text_field :section, class: 'ever-inputs form-control', placeholder: 'Section'%>
+      </div>
+    </div>
 
-  <div class="col-12 col-sm-6">
-    <div class="form-group">
-      <%= f.text_field :section, class: 'ever-inputs form-control', placeholder: 'Section'%>
+    <div class="col-12 col-sm-6">
+      <div class="form-group"><%= f.text_field :title, class: 'ever-inputs form-control', placeholder: 'Title' %></div>
+    </div>
+  
+    <div class="col-12 col-sm-6">
+      <div class="form-group"><%= f.text_field :percent, class: 'ever-inputs form-control', placeholder: 'Percent'  %></div>
+    </div>
+
+    <div class="col-md-6">
+      <%= link_to_remove_association 'remove skill', f, class: 'btn btn-danger btn-xs pull-right title' %>
     </div>
   </div>
-
-
-  <div class="col-12 col-sm-6">
-    <div class="form-group"><%= f.text_field :title, class: 'ever-inputs form-control', placeholder: 'Title' %></div>
-  </div>
-  
-  <div class="col-12 col-sm-6">
-    <div class="form-group"><%= f.text_field :percent, class: 'ever-inputs form-control', placeholder: 'Percent'  %></div>
-  </div>
-
-  <div class="col-md-6">
-    <%= link_to_remove_association 'remove skill', f, class: 'btn btn-danger btn-xs pull-right title' %>
-  </div>
-    
-  <hr class="col-md-10 col-md-offset-1">
 </div>

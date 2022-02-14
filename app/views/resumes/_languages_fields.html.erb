@@ -1,16 +1,13 @@
 <div class="nested-fields">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <div class="form-group">
+        <%= f.text_field :name, class: 'ever-inputs form-control', placeholder: 'Name'%>
+      </div>
+    </div>
 
-  <div class="col-12 col-sm-6">
-    <div class="form-group">
-      <%= f.text_field :name, class: 'ever-inputs form-control', placeholder: 'Name'%>
+    <div class="col-12 col-sm-6 ">
+      <%= link_to_remove_association 'remove', f, class: 'btn btn-danger btn-xs' %>
     </div>
   </div>
-
-  <div class="col-md-6 ">
-    <%#= f.text_field :level, class: 'ever-inputs', placeholder: 'Level' %>
-    <%= link_to_remove_association 'remove', f, class: 'btn btn-danger btn-xs pull-right title' %>
-  </div>
-
-  <hr class="col-md-10 col-md-offset-1">
-
 </div>
