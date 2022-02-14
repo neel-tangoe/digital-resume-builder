@@ -2,6 +2,17 @@ class ResumesController < ApplicationController
 
   def index
     @resumes = current_user.resumes
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "demo",
+               :layout => "pdf.html",
+               :template => "pdf/resume_template.pdf.erb",
+               :margin => { :top => 10, :bottom => 10, :left => 10, :right => 10},
+               :viewport_size => '1280x1024',
+               disposition: 'attachment'
+      end
+    end
   end
 
   def show

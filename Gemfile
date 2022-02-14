@@ -31,6 +31,12 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem 'jquery-rails'
 
+#pdf 
+gem 'ckeditor'
+gem 'wicked_pdf'
+#pdf for local server
+gem 'wkhtmltopdf-binary'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

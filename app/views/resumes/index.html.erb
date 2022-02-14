@@ -12,6 +12,7 @@
             <%= link_to 'View', resume, class: 'btn btn-default btn-sm' %>
             <%= link_to 'Edit', edit_resume_path(resume), class: 'btn btn-warning btn-sm' %>
             <%= link_to 'Delete', resume, method: :delete, class: 'btn btn-danger btn-sm', data: {:confirm => 'Are you sure?'} %>
+            <%= link_to "Download", resumes_path(@resume, format: "pdf"), class: 'btn btn-primary btn-sm' %>
           </p>
         </div>
       </div>
