@@ -19,4 +19,6 @@ module ARBuilder
     config.time_zone = 'Kolkata'
     # config.eager_load_paths << Rails.root.join("extras")
   end
+
+  ActiveStorage::Engine.config.active_storage.content_types_to_serve_as_binary.delete('image/svg+xml')
 end

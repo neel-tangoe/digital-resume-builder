@@ -1,29 +1,29 @@
-<div class="container">
-  <div class="row">
-    <% if @resumes.present? %>
+<div class="row p-2">
+  <% if @resumes.present? %>
     <% @resumes.each do |resume| %>
-    <div class="col-sm-4 col-md-3">
-      <div class="thumbnail">
-        <%#= image_tag(resume.avatar.url(:large)) %>
-        <div class="caption">
-          <h3><%= resume.name %></h3>
-          <p><%= resume.general_info %></p>
-          <p>
-            <%= link_to "normal", resume_path(resume, type: "normal"), class: 'btn btn-primary btn-sm'%>
-            <%= link_to "advance", resume_path(resume, type: "advance"), class: 'btn btn-primary btn-sm'%>
-            <%= link_to 'Edit', edit_resume_path(resume), class: 'btn btn-warning btn-sm' %>
-            <%= link_to 'Delete', resume, method: :delete, class: 'btn btn-danger btn-sm', data: {:confirm => 'Are you sure?'} %>
-          </p>
-          <p>
-            <%= link_to "Download", resumes_path(@resume, format: "pdf"), class: 'btn btn-primary btn-sm' %>
-          </p>
+      <div class="col-12 col-sm-4 pt-5">
+        <div class="card p-2">
+          <div class="thumbnail">
+            <%#= image_tag(resume.avatar.url(:large)) %>
+            <div class="caption">
+              <h3><%= resume.name %></h3>
+              <h4><%= resume.website %></h4>
+              <p><%= resume.general_info %></p>
+              <p>
+                <%= link_to "Normal", resume_path(resume, type: "normal"), class: 'btn btn-primary btn-sm'%>
+                <%= link_to "Advance", resume_path(resume, type: "advance"), class: 'btn btn-primary btn-sm'%>
+                <%= link_to 'Edit', edit_resume_path(resume), class: 'btn btn-warning btn-sm' %>
+                <%= link_to 'Delete', resume, method: :delete, class: 'btn btn-danger btn-sm', data: {:confirm => 'Are you sure?'} %>
+                <%= link_to "Download", download_resume_path(resume, :format => 'pdf'), class: 'btn btn-primary btn-sm' %>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
-    <% end %>
-  </div>
-  <%= link_to 'new', new_resume_path, class: 'btn btn-primary btn-sm' %>
+  <% end %>
+</div>
+<%= link_to 'New Resume', new_resume_path, class: 'btn btn-primary btn-sm' %>
 
 </div>
 

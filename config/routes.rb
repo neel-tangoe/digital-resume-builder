@@ -12,7 +12,12 @@ Rails.application.routes.draw do
     get "forgot_password", to: "devise/passwords#new"
   end
   
-  resources :resumes
+  resources :resumes do
+    member do
+      get 'download'
+      delete 'delete_attachment'
+    end
+  end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -31,8 +31,7 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem 'jquery-rails'
 
-#pdf 
-gem 'ckeditor'
+#pdf
 gem 'wicked_pdf'
 #pdf for local server
 gem 'wkhtmltopdf-binary'

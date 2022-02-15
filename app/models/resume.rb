@@ -1,7 +1,7 @@
 class Resume < ApplicationRecord
   belongs_to :user
 
-
+  include ResumeAttachment
   has_many :skills, dependent: :destroy
   has_many :languages, dependent: :destroy
   has_many :projects, dependent: :destroy

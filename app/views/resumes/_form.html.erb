@@ -33,6 +33,12 @@
 
         <div class="col-12 col-sm-6">
           <div class="form-group">
+            <%= f.text_field :email, class: 'ever-inputs form-control', placeholder: 'Email Address*' %>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6">
+          <div class="form-group">
             <%= f.text_field :interests, class: 'ever-inputs form-control', placeholder: 'Interests*' %>
           </div>
         </div>
@@ -156,6 +162,17 @@
         </div>
       </div>
     </div>
+
+    <div class="row pt-3">
+      <div class="col-md-12 col-md-offset-1 card">
+        <div class="text-center"><h4>Upload Image</h4></div>
+        <div id="languages">
+          <%= f.file_field :avtar, :class => "form-control" %>
+          <% if f.object.avtar.present? %>
+            <%= image_tag(f.object.avtar)  %>
+            <%= link_to 'Remove',delete_attachment_resume_path(:id => @resume.avtar.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+    
 
     <div class="row pt-4">
       <div class="col-12">

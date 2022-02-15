@@ -7,12 +7,16 @@ class ResumesController < ApplicationController
   def show
     @template_type = params[:type]
     @resume = current_user.resumes.find(params[:id])
+  end
+
+  def download
+    @resume = current_user.resumes.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
         render :pdf => 'demo',
-               :layout => "pdf.html",
-               :template => "resumes/resume_template.pdf.erb",
+               :layout => "pdf",
+               :template => "pdf/resume_template",
                :margin => { :top => 10, :bottom => 10, :left => 10, :right => 10},
                :viewport_size => '1280x1024',
                disposition: 'attachment'
@@ -51,6 +55,12 @@ class ResumesController < ApplicationController
     end
   end
 
+  def delete_attachment
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @image.purge
+    redirect_to request.referer
+  end
+
   def destroy
     @resume = current_user.resumes.find(params[:id])
     @resume.destroy
@@ -59,7 +69,7 @@ class ResumesController < ApplicationController
 
   private
   def resume_params
-    params.require(:resume).permit(:name, :general_info, :phone_number, :interests, :user_id, :address, :country, :birthdate, :gender, :website,
+    params.require(:resume).permit(:name, :avtar, :general_info, :phone_number, :interests, :user_id, :address, :country, :birthdate, :gender, :website, :email,
                                    skills_attributes: [:id, :section, :title, :percent, :_destroy],
                                    languages_attributes: [:id, :name, :_destroy],
                                    projects_attributes:[:id, :date_from, :date_to, :client, :description, :technologies, :role, :level, :team_size, :_destroy],
