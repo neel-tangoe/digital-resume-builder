@@ -21,6 +21,10 @@
       <div class="form-group"><%= f.text_field :place, class: 'ever-inputs form-control', placeholder: 'Place'  %></div>
     </div>
 
+    <div class=" col-12 col-sm-6">
+      <div class="form-group"><%= f.text_field :description, class: 'ever-inputs form-control', placeholder: 'Job Description' %></div>
+    </div>
+
     <div class="col-md-6">
       <%= link_to_remove_association 'remove', f, class: 'btn btn-danger btn-xs pull-right title' %>
     </div>

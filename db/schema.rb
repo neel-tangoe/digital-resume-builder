@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_15_064331) do
+ActiveRecord::Schema.define(version: 2022_02_17_110143) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2022_02_15_064331) do
     t.string "place"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "course"
   end
 
   create_table "jobs", charset: "utf8mb4", force: :cascade do |t|
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_02_15_064331) do
     t.datetime "updated_at", precision: 6, null: false
     t.date "date_from"
     t.date "date_to"
+    t.text "description"
   end
 
   create_table "languages", charset: "utf8mb4", force: :cascade do |t|

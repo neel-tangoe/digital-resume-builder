@@ -14,13 +14,14 @@
 
     <div class="col-12 col-sm-6">
       <div class="form-group"> 
-        <%= f.text_field :client, class: 'ever-inputs form-control', placeholder: 'Client'  %>
+        <%= f.text_field :client, class: 'ever-inputs form-control', placeholder: 'Project Name'  %>
       </div>
     </div>
 
     <div class="col-12 col-sm-6">
-      <div class="form-group"> 
-        <%= f.text_field :role, class: 'ever-inputs form-control', placeholder: 'Role in project'  %>
+      <div class="form-group">
+        <% roles = [["Developer", 'DEVELOPER'], ["Tester", "DESIGNER"], ["Designer", "TESTER"], ["Team Leader","TEAM_LEADER"]] %>
+        <%= f.select :role, roles, {}, class: 'ever-inputs form-control', placeholder: 'Gender' %>
       </div>
     </div>
 
