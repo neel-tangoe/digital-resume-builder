@@ -1,8 +1,12 @@
 <div class="nested-fields">
   <div class="row">
-    <div class="col-12 col-sm-6">
-      <div class="form-group">
-        <%= f.text_field :name, class: 'ever-inputs form-control', placeholder: 'Name'%>
+
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-name">
+        <%= f.text_field :name, :class => "form-control",:placeholder => "Name" %>
+        <label for="resume-name">
+          Language Name
+        </label>
       </div>
     </div>
 

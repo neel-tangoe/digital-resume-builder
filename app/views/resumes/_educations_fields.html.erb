@@ -1,27 +1,58 @@
 <div class="nested-fields">
   <div class="row">
-    <div class="col-12 col-sm-6">
-      <div class="form-group"><%= f.date_field :date_from, class: 'ever-inputs form-control datetimepicker', placeholder: 'Date from' %></div>
+
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-dfrom">
+        <%= f.date_field :date_from, :class => "form-control",:placeholder => "Date From" %>
+        <label for="resume-dfrom">
+          Date From
+        </label>
+      </div>
+    </div>
+
+   <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-dto">
+        <%= f.date_field :date_to, :class => "form-control",:placeholder => "Date To" %>
+        <label for="resume-dto">
+          Date To
+        </label>
+      </div>
     </div>
         
-    <div class="col-12 col-sm-6">
-      <div class="form-group"><%= f.date_field :date_to, class: 'ever-inputs form-control datetimepicker', placeholder: 'Date to' %></div>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-level">
+        <%= f.text_field :level, :class => "form-control",:placeholder => "Course" %>
+        <label for="resume-level">
+          Course
+        </label>
+      </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-      <div class="form-group"><%= f.text_field :level, class: 'ever-inputs form-control', placeholder: 'Course'  %></div>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-field">
+        <%= f.text_field :course, :class => "form-control",:placeholder => "Field" %>
+        <label for="resume-field">
+          Field
+        </label>
+      </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-      <div class="form-group"><%= f.text_field :course, class: 'ever-inputs form-control', placeholder: 'Field'  %></div>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-college">
+        <%= f.text_field :place, :class => "form-control",:placeholder => "College" %>
+        <label for="resume-college">
+          College Name
+        </label>
+      </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-      <div class="form-group"><%= f.text_field :place, class: 'ever-inputs form-control', placeholder: 'College Name'  %></div>
-    </div>
-
-    <div class="col-12 col-sm-6">
-      <div class="form-group"><%= f.text_field :description, class: 'ever-inputs form-control', placeholder: 'Percentage or CGPA' %></div>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-des">
+        <%= f.text_field :description, :class => "form-control",:placeholder => "Marks Obtained (CPI or CGPA)" %>
+        <label for="resume-des">
+          Overall CGPA or CPI
+        </label>
+      </div>
     </div>
 
     <div class="col-md-6">

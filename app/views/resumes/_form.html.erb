@@ -24,24 +24,36 @@
       </div>
       <hr>
 
+
       <div class="row">
-        <div class="col-12 col-sm-6">
-          <div class="form-group">
-            <%= f.text_field :name, class: 'ever-inputs form-control', placeholder: 'Name*' %>
+        <div class="col-12 col-lg-6">
+          <div class="form-group form-group-label" id="resume-name">
+            <%= f.text_field :name, :class => "form-control",:placeholder => "Name" %>
+            <label for="resume-name">
+              Name
+            </label>
+          </div>
+        </div> 
+
+        <div class="col-12 col-lg-6">
+          <div class="form-group form-group-label" id="resume-email">
+            <%= f.text_field :email, :class => "form-control",:placeholder => "Email Address" %>
+            <label for="resume-email">
+              Email
+            </label>
           </div>
         </div>
 
-        <div class="col-12 col-sm-6">
-          <div class="form-group">
-            <%= f.text_field :email, class: 'ever-inputs form-control', placeholder: 'Email Address*' %>
+        <div class="col-12 col-lg-6">
+          <div class="form-group form-group-label" id="resume-interests">
+            <%= f.text_field :interests, :class => "form-control",:placeholder => "Interests" %>
+            <label for="resume-interests">
+              Interests
+            </label>
           </div>
         </div>
 
-        <div class="col-12 col-sm-6">
-          <div class="form-group">
-            <%= f.text_field :interests, class: 'ever-inputs form-control', placeholder: 'Interests*' %>
-          </div>
-        </div>
+        
 
         <div class="col-12 col-sm-6">
           <div class="form-group">
@@ -50,39 +62,57 @@
           </div>
         </div>
 
-        <div class="col-12 col-sm-6">
-          <div class="form-group">
-            <%= f.date_field :birthdate, class: 'ever-inputs form-control', placeholder: 'Birthdate' %>
+        <div class="col-12 col-lg-6">
+          <div class="form-group form-group-label" id="resume-bdate">
+            <%= f.date_field :birthdate, :class => "form-control",:placeholder => "Birthdate" %>
+            <label for="resume-bdate">
+              Birthdate
+            </label>
           </div>
         </div>
 
-        <div class="col-12 col-sm-6">
-          <div class="form-group">
-            <%= f.text_field :address, class: 'ever-inputs form-control', placeholder: 'Address' %>
+        <div class="col-12 col-lg-6">
+          <div class="form-group form-group-label" id="resume-name">
+            <%= f.text_field :address, :class => "form-control",:placeholder => "Address" %>
+            <label for="resume-address">
+              Address
+            </label>
           </div>
         </div>
 
-        <div class="col-12 col-sm-6">
-          <div class="form-group">
-            <%= f.text_field :country, class: 'ever-inputs form-control', placeholder: 'Country' %>
+        <div class="col-12 col-lg-6">
+          <div class="form-group form-group-label" id="resume-country">
+            <%= f.text_field :country, :class => "form-control",:placeholder => "Country" %>
+            <label for="resume-country">
+              Country
+            </label>
           </div>
         </div>
 
-        <div class="col-12 col-sm-6">
-          <div class="form-group">
-            <%= f.text_field :website, class: 'ever-inputs form-control', placeholder: 'Website' %>
+        <div class="col-12 col-lg-6">
+          <div class="form-group form-group-label" id="resume-website">
+            <%= f.text_field :website, :class => "form-control",:placeholder => "Website" %>
+            <label for="resume-website">
+              Website
+            </label>
           </div>
         </div>
 
-        <div class="col-12 col-sm-6">
-          <div class="form-group">
-            <%= f.text_field :phone_number, class: 'ever-inputs form-control', placeholder: 'Phone Number' %>
+        <div class="col-12 col-lg-6">
+          <div class="form-group form-group-label" id="resume-phone">
+            <%= f.text_field :phone_number, :class => "form-control",:placeholder => "Phone Number" %>
+            <label for="resume-phone">
+              Contact Info
+            </label>
           </div>
         </div>
 
-        <div class="col-12 col-sm-6">
-          <div class="form-group">
-            <%= f.text_field :general_info, class: 'ever-inputs form-control', placeholder: 'General information*' %>
+        <div class="col-12 col-lg-6">
+          <div class="form-group form-group-label" id="resume-geninfo">
+            <%= f.text_field :general_info, :class => "form-control",:placeholder => "General information" %>
+            <label for="resume-geninfo">
+              About You
+            </label>
           </div>
         </div>
       </div>

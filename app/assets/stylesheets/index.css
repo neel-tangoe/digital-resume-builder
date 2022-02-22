@@ -103,3 +103,32 @@ section.footer {
     right: 0;
     text-align: center;
 }
+
+.form-group-label{ position: relative;}
+.form-group-label > label,
+.form-group-label > .custom-select > label{ padding: 0 7px; position: absolute; top: 16px; left: 8px; display: inline-block; margin-bottom: 0; line-height: 1; font-size: 14px; font-weight: 500; color: #939799; transition: all .2s ease-in-out; cursor: text;}
+.form-group-label .form-control,
+.form-group-label .custom-select{ background-color: #fafafa;}
+.form-group-label .form-control:focus,
+.form-group-label input.form-control:not(:placeholder-shown),
+.form-group-label select.custom-select{ background-color: #fff;}
+.form-group-label .form-control::-webkit-input-placeholder{ color: transparent; opacity: 0;}
+.form-group-label .form-control:-ms-input-placeholder{ color: transparent; opacity: 0;}
+.form-group-label .form-control::-ms-input-placeholder{ color: transparent; opacity: 0;}
+.form-group-label .form-control::-moz-placeholder{ color: transparent; opacity: 0;}
+.form-group-label .form-control::placeholder{ color: transparent; opacity: 0;}
+.form-group-label > .form-control:disabled ~ label,
+.form-group-label > .form-control[readonly] ~ label{ color: #828282;}
+.form-group-label .form-control:focus ~ label,
+.form-group-label input.form-control:not(:placeholder-shown) ~ label,
+.form-group-label select.custom-select ~ label,
+.form-group-label.label-fixed .form-control ~ label{ top: -6px; font-size: 12px; background: #fff; max-width: 100%;}
+.form-group-label input.form-control ~ label,
+.form-group-label select.form-control ~ label{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;}
+.form-group-label input.fc-icon-right ~ label{ max-width: calc(100% - 40px);}
+.form-group-label input.form-control.is-invalid ~ label,
+.form-group-label select.custom-select.is-invalid ~ label{ color: #DD3034;}
+
+.form-label-inset{ position: relative;}
+.form-label-inset label{ font-size: 10px; line-height: normal; color: #1e4472; position: absolute; left: 15px; top: 6px;}
+.form-label-inset .form-control{ padding-top: 17px; padding-bottom: 3px;}

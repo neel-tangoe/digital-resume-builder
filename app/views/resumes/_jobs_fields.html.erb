@@ -1,30 +1,62 @@
 <div class="nested-fields">
   <div class="row">
-    <div class="col-12 col-sm-6">
-      <div class="form-group">
-        <%= f.date_field :date_from, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date from' %>
+
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-dfrom">
+        <%= f.date_field :date_from, :class => "form-control",:placeholder => "Date From" %>
+        <label for="resume-dfrom">
+          Date From
+        </label>
       </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-      <div class="form-group">
-        <%= f.date_field :date_to, class: 'ever-inputs datetimepicker form-control', placeholder: 'Date to' %>
+
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-dto">
+        <%= f.date_field :date_to, :class => "form-control",:placeholder => "Date To" %>
+        <label for="resume-dto">
+          Date To
+        </label>
       </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-      <div class="form-group"><%= f.text_field :position, class: 'ever-inputs form-control', placeholder: 'Position'%></div>
-      <div class="form-group"><%= f.text_field :firm, class: 'ever-inputs form-control', placeholder: 'Company'%></div>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-position">
+        <%= f.text_field :position, :class => "form-control",:placeholder => "Position" %>
+        <label for="resume-position">
+          Position
+        </label>
+      </div>
     </div>
 
-    <div class=" col-12 col-sm-6">
-      <div class="form-group"><%= f.text_field :place, class: 'ever-inputs form-control', placeholder: 'Place'  %></div>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-firm">
+        <%= f.text_field :firm, :class => "form-control",:placeholder => "Company" %>
+        <label for="resume-firm">
+          Company
+        </label>
+      </div>
     </div>
 
-    <div class=" col-12 col-sm-6">
-      <div class="form-group"><%= f.text_field :description, class: 'ever-inputs form-control', placeholder: 'Job Description' %></div>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-place">
+        <%= f.text_field :place, :class => "form-control",:placeholder => "Place" %>
+        <label for="resume-place">
+          Place(City)
+        </label>
+      </div>
     </div>
 
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-des">
+        <%= f.text_field :description, :class => "form-control",:placeholder => "Job Description" %>
+        <label for="resume-des">
+          Job Description
+        </label>
+      </div>
+    </div>
+
+    
     <div class="col-md-6">
       <%= link_to_remove_association 'remove', f, class: 'btn btn-danger btn-xs pull-right title' %>
     </div>

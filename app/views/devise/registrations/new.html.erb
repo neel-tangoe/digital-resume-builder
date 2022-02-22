@@ -4,16 +4,48 @@
     <h1 class="h3 mb-3 font-weight-normal">Please Sign Up</h1>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    
-    <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "First Name" %>
-
-    <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Last Name" %>
-
-    <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Email" %>
-
-    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+    <div class="form-group form-group-label" id="resume-name">
+      <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "First Name" %>
+      <label for="resume-name">
+        First Name
+      </label>
+    </div>
   
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Password Confirmation" %>
+    <div class="form-group form-group-label" id="resume-name">
+      <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Last Name" %>
+      
+      <label for="resume-name">
+        Last Name
+      </label>
+    </div>
+
+    <div class="form-group form-group-label" id="resume-name">
+      <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Email" %>
+      <label for="resume-name">
+        Email Address
+      </label>
+    </div>
+
+    <div class="form-group form-group-label" id="resume-name">
+      
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+      <label for="resume-name">
+        Password
+      </label>
+    </div>
+
+    <div class="form-group form-group-label" id="resume-name">
+      
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Password Confirmation" %>
+      <label for="resume-name">
+        Password Confirmation
+      </label>
+    </div>
+    
+
+
+
+  
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
   <% end %>  

@@ -1,22 +1,35 @@
 <div class="nested-fields">
   <div class="row">
-    <div class="col-12 col-sm-6">
-      <div class="form-group"> 
-        <%= f.date_field :date_from, class: 'ever-inputs form-control datetimepicker', placeholder: 'Date from' %>
+
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-dfrom">
+        <%= f.date_field :date_from, :class => "form-control",:placeholder => "Date From" %>
+        <label for="resume-dfrom">
+          Date From
+        </label>
       </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-      <div class="form-group"> 
-        <%= f.date_field :date_to, class: 'ever-inputs form-control datetimepicker', placeholder: 'Date to' %>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-dto">
+        <%= f.date_field :date_to, :class => "form-control",:placeholder => "Date To" %>
+        <label for="resume-dto">
+          Date To
+        </label>
       </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-      <div class="form-group"> 
-        <%= f.text_field :client, class: 'ever-inputs form-control', placeholder: 'Project Name'  %>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-client">
+        <%= f.text_field :client, :class => "form-control",:placeholder => "Project Name" %>
+        <label for="resume-client">
+          Project Name
+        </label>
       </div>
     </div>
+
+
+    
 
     <div class="col-12 col-sm-6">
       <div class="form-group">
@@ -36,23 +49,34 @@
       </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-      <div class="form-group"> 
-        <%= f.number_field :team_size, class: 'ever-inputs form-control', placeholder: 'Number of people involved' %>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-team">
+        <%= f.number_field :team_size, :class => "form-control",:placeholder => "Number of People Involved" %>
+        <label for="resume-team">
+          Number of People Involved
+        </label>
       </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-      <div class="form-group"> 
-        <%= f.text_area :description, class: 'ever-inputs form-control', placeholder: 'Project description' %>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-des">
+        <%= f.text_area :description, :class => "form-control",:placeholder => "Project Description" %>
+        <label for="resume-des">
+          Project Description
+        </label>
       </div>
     </div>
 
-    <div class="col-12 col-sm-6">
-      <div class="form-group"> 
-        <%= f.text_area :technologies, class: 'ever-inputs form-control', placeholder: 'Used technologies' %>
+    <div class="col-12 col-lg-6">
+      <div class="form-group form-group-label" id="resume-tech">
+        <%= f.text_area :technologies, :class => "form-control",:placeholder => "Used Technologies" %>
+        <label for="resume-tech">
+          Used Technologies
+        </label>
       </div>
     </div>
+
+    
 
     <div class="col-md-6">
       <%= link_to_remove_association 'remove project', f, class: 'btn btn-danger btn-xs pull-right title' %>
