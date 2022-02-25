@@ -7,33 +7,18 @@
           <div class="container">
             <div class="content-center">
               <div class="cc-profile-image">
-                <a href="#">
-                  <img src="images/anthony.jpg" alt="Image" />
-                </a>
+                <% if @resume.avtar.present? %>
+                  <div class='center'><%= image_tag @resume.avtar,:width=>"200", :height=>"200" %></div>
+                <% end %>
               </div>
-              <div class="h2 title"><%= @resume.name %></div>
-              <p class="category text-white"><Web Developer, Graphic Designer, Photographer></p>
-              <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a>
-              <a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
-            </div>
-          </div>
-          <div class="section">
-            <div class="container">
-              <div class="button-container">
-                <a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Facebook">
-                  <i class="fa fa-facebook"></i>
-                </a>
-                <a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Twitter">
-                  <i class="fa fa-twitter"></i>
-                </a>
-                <a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Google+">
-                  <i class="fa fa-google-plus"></i>
-                </a>
-                <a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Instagram">
-                  <i class="fa fa-instagram"></i>
-                </a>
+              <div class="row">
+                <div class="col-12">
+                  <div class="pull-right"><h2><%= @resume.name %></h2></div>
+                  <p class="category text-white"><Web Developer, Graphic Designer, Photographer></p>
+                    
+                  </div>
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -47,7 +32,7 @@
           <div class="card-body">
             <div class="h4 mt-0 title">About</div>
             <p>Hello! I am <%= @resume.name %></p>
-            <p><%= @resume.general_info %><a href="https://templateflip.com/templates/creative-cv/" target="_blank">Learn More</a></p>
+            <p><%= @resume.general_info %></p>
           </div>
         </div>
         <div class="col-lg-6 col-md-12">
@@ -186,12 +171,8 @@
 
 
     
-  <footer class="footer">
-    <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
-    <div class="text-center text-muted">
-      <p>&copy; Digital Resume Builder. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a></p>
-    </div>
-  </footer>
+  
+  
     <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
     <script src="js/core/popper.min.js?ver=1.1.0"></script>
     <script src="js/core/bootstrap.min.js?ver=1.1.0"></script>
