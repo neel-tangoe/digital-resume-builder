@@ -20,8 +20,8 @@
         <% @resume.projects.each do |project| %>
           <div class="project-sections"></div>
           <div class="project-date project-fields">
-            <%= project.date_from.strftime('%B %Y') %> -
-            <%= project.date_to.strftime('%B %Y') %>
+            <%= project.date_from&.strftime('%B %Y') %> -
+            <%= project.date_to&.strftime('%B %Y') %>
             <span style="display: block; color: #2E2F30"><strong>Client</strong>: <%= project.client %></span>
           </div>
           <div class="project-fields">
@@ -85,8 +85,8 @@
         <% @resume.educations.each do |education| %>
           <div class="project-sections-education"></div>
           <div class="project-date project-fields">
-            <%= education.date_from.strftime('%B %Y') %> -
-            <%= education.date_to.strftime('%B %Y') %>
+            <%= education.date_from&.strftime('%B %Y') %> -
+            <%= education.date_to&.strftime('%B %Y') %>
           </div>
           <div>
             <span class="project-fields"><strong>College Name</strong>:<%= education.place %></span>
@@ -124,7 +124,7 @@
   <% if user_signed_in? && current_user.id == @resume.user_id %>
     <p class="pull-right">
       <%= link_to 'Back', :back, class: 'btn btn-default btn-sm' %>
-      <%= link_to 'Edit', edit_resume_path, class: 'btn btn-warning btn-sm' %>
+      <%= link_to 'Edit', edit_resume_path(@resume, step: 1), class: 'btn btn-warning btn-sm' %>
     </p>
   <% end %>
 </div>

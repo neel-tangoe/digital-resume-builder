@@ -5,11 +5,12 @@ class ResumesController < ApplicationController
   end
 
   def show
-    @template_type = params[:type]
     @resume = current_user.resumes.find(params[:id])
+    @template_type = params[:type]
   end
 
   def download
+    @resume_type = params[:resume_type]
     @resume = current_user.resumes.find(params[:id])
     respond_to do |format|
       format.html
@@ -25,6 +26,7 @@ class ResumesController < ApplicationController
   end
 
   def new
+    @step = 1
     @resume = current_user.resumes.new
     respond_to do |format|
       format.html { render :template => "resumes/_form" }
@@ -32,14 +34,16 @@ class ResumesController < ApplicationController
   end
 
   def edit
+    @step = params[:step]
     @resume = current_user.resumes.find(params[:id])
   end
 
   def create
+    @step = params[:step]
     @resume = current_user.resumes.new(resume_params)
 
     if @resume.save
-      redirect_to resume_path(@resume)
+      redirect_to edit_resume_path(@resume, step: 2 )
     else
       render 'new'
       end
@@ -49,7 +53,9 @@ class ResumesController < ApplicationController
     @resume = current_user.resumes.find(params[:id])
 
     if @resume.update(resume_params)
-      redirect_to resume_path(@resume)
+      step = params[:proceed_next] ? params[:step].to_i+1 : params[:step].to_i
+      url = params[:proceed_next] ? edit_resume_path(@resume, step:  step) : resume_path(@resume)
+      redirect_to url
     else
       render 'edit'
     end
