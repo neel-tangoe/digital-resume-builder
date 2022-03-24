@@ -8,11 +8,12 @@
             <div class="col-12">
               <div class="text-center"><h4>Project Experience</h4></div>
                 <div id="projects">
+                <% build_project = @resume.projects.build %>
                 <%= f.fields_for :projects do |project| %>
-                    <%= render 'project_fields', f: project %>
+                  <%= render 'project_fields', f: project %>
                 <% end %>
                 <div class="text-right">
-                  <%= link_to_add_association 'Add projects', f, :projects, partial: 'project_fields', class: 'add-buttons pull-right' %>
+                  <%= link_to_add_association 'Add projects', f, :projects, partial: 'project_fields', class: 'add-buttons' %>
                 </div>
               </div>
             </div>

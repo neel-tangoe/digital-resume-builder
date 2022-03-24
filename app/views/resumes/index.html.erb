@@ -15,7 +15,7 @@
                   <%= link_to "Normal", resume_path(resume, type: "normal"), class: 'btn btn-primary btn-sm'%>
                   <%= link_to "Intermediate", resume_path(resume, type: "intermediate"), class: 'btn btn-info btn-sm'%>
                   <%= link_to "Pro", resume_path(resume, type: "pro"), class: 'btn btn-primary btn-sm'%>
-                  <%= link_to 'Edit', edit_resume_path(resume), class: 'btn btn-warning btn-sm' %>
+                  <%= link_to 'Edit', edit_resume_path(resume, step: 1), class: 'btn btn-warning btn-sm' %>
                   <%= link_to 'Delete', resume, method: :delete, class: 'btn btn-danger btn-sm', data: {:confirm => 'Are you sure?'} %>
                   <%= link_to "Download", download_resume_path(resume, :format => 'pdf'), class: 'btn btn-success btn-sm' %>
                 </p>

@@ -8,7 +8,7 @@
             <div class="col-12">
               <div class="text-center"><h4>Education</h4></div>
               <div id="educations">
-                <%= f.fields_for :educations do |education| %>
+                <%= f.fields_for :educations, @resume.educations.build do |education| %>
                   <%= render 'educations_fields', f:education %>
                 <% end %>
 
@@ -24,11 +24,11 @@
             <div class="col-12">
               <div class="text-center"><h4>Languages</h4></div>
               <div id="languages">
-                <%= f.fields_for :languages do |language| %>
+                <%= f.fields_for :languages, @resume.languages.build do |language| %>
                   <%= render 'languages_fields', f: language %>
                 <% end %>
                 <div class="text-right">
-                  <%= link_to_add_association 'Add more languages', f, :languages, partial: 'languages_fields', class: 'add-buttons pull-right' %>
+                  <%= link_to_add_association 'Add more languages', f, :languages, partial: 'languages_fields', class: 'add-buttons' %>
                 </div>
               </div>
             </div>

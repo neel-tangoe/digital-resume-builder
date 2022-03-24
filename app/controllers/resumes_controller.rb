@@ -46,7 +46,7 @@ class ResumesController < ApplicationController
       redirect_to edit_resume_path(@resume, step: 2 )
     else
       render 'new'
-      end
+    end
   end
 
   def update
