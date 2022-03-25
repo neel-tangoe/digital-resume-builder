@@ -1,0 +1,16 @@
+<div class="row mb-n3 mb-md-n4">
+  <div class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4 pb-1">
+    <%= link_to "Create new resume", new_resume_path, class: "items-add-user wb-rounded " %>
+  </div>
+  <% if @resumes.present?   %>
+    <% @resumes.each do |resume| %>
+      <%= render 'resumes_show', resume: resume %>
+    <% end %>
+  <% else %>
+    <div class="col-12 col-sm-6 col-md-4 col-10 alert alert-warning">
+      <span>
+        <%= "no record found" %>
+      </span>
+    </div>
+  <% end %>
+</div>

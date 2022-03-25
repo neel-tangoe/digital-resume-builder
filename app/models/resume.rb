@@ -2,12 +2,14 @@ class Resume < ApplicationRecord
   belongs_to :user
 
   include ResumeAttachment
-  has_many :skills, dependent: :destroy
-  has_many :languages, dependent: :destroy
-  has_many :projects, dependent: :destroy
-  has_many :educations, dependent: :destroy
-  has_many :awards, dependent: :destroy
-  has_many :jobs, dependent: :destroy
+
+  has_many :skills, dependent: :destroy, :foreign_key => "resume_id"
+  has_many :languages, dependent: :destroy, :foreign_key => "resume_id"
+  has_many :projects, dependent: :destroy, :foreign_key => "resume_id"
+  has_many :educations, dependent: :destroy, :foreign_key => "resume_id"
+  has_many :awards, dependent: :destroy, :foreign_key => "resume_id"
+  has_many :jobs, dependent: :destroy, :foreign_key => "resume_id"
+  has_one :share_cv
 
   accepts_nested_attributes_for :skills, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :languages, reject_if: :all_blank, allow_destroy: true
@@ -21,8 +23,7 @@ class Resume < ApplicationRecord
             length: {minimum: 3}
 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-  validates :general_info, presence: true,
-            length: {minimum: 10}
+  validates :general_info, presence: true, length: {minimum: 10}
   validates :phone_number, presence: true
   validates :user_id, presence: true
   validates :country, presence: true

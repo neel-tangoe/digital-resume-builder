@@ -1,4 +1,4 @@
-<div class="section" id="section-details" >
+<section class="section-details" >
   <div class="container">
     <%= form_for(@resume, :url => (@resume.new_record? ? resumes_path : resume_path(@resume)), :method => (@resume.new_record? ? "POST" : "PUT"), :html => {:multipart => true, :id => 'user-form'}) do |f| %>
       <%= hidden_field_tag "step", @step.to_i %>
@@ -116,24 +116,30 @@
 
                   <div class="col-12 col-md-6">
                     <div class="form-group form-group-label" id="resume-geninfo">
-                      <%= f.text_field :general_info, :class => "form-control",:placeholder => "General information" %>
+                      <%= f.text_field :general_info, :class => "form-control",:placeholder => "About You" %>
                       <label for="resume-geninfo">
                         About You
                       </label>
+                      <% if @resume.errors[:general_info].any? %>
+                        <span class="text-error" id="text-message"><%= @resume.errors[:general_info].first %></span>
+                      <% end %>
                     </div>
                   </div>
-                  <hr>
-
-                  <div class="item-header">
-                    <div class="row mx-n2">
-                      <div class="col-12">
-                        <div class="text-center"><h4>Skills</h4></div>
-                        <%= f.fields_for :skills do |skill| %>
-                          <%= render 'skill_fields', f: skill %>
-                        <% end %>
-                        <div class="text-right">
-                          <%= link_to_add_association 'Add skills', f, :skills, partial: 'skill_fields', class: 'add-buttons pull-right' %>
-                        </div>
+                  <div class="col-12 seperator pt-2">
+                    <hr class="mt-0 mb-3 mb-md-4 pt-2">
+                  </div>
+                  <div class="row mx-n2">
+                    <div class="col-12">
+                      <div class="text-center"><h4>Skills</h4></div>
+                      <div class="col-12 seperator pt-2">
+                        <hr class="mt-0 mb-3 mb-md-4 pt-2">
+                      </div>
+                      <% skil =  @resume.skills.blank? ? @resume.skills.build : "" %>
+                      <%= f.fields_for :skills, skil do |skill| %>
+                        <%= render 'skill_fields', f: skill %>
+                      <% end %>
+                      <div class="text-right">
+                        <%= link_to_add_association 'Add skills', f, :skills, partial: 'skill_fields', class: 'add-buttons pull-right' %>
                       </div>
                     </div>
                   </div>
@@ -144,15 +150,18 @@
           <div class="col-12 col-sm-3">
             <div class="items-btns">
               <a class="btn btn-primary" href="<%= resumes_path %>">
-                <span class="icon-close-back">return</span>
+                RETURN  
+                <span class="icon-close-back"></span>
               </a>
               <button class="btn btn-primary" id="saveMedia" name="save" type="submit">
-                <span class="icon-next">save</span>
+                SAVE
+                <span class="icon-next"></span>
               </button>
               <button class="btn btn-primary" name="proceed_next" type="submit">
                 <br class="d-none d-md-block">
                 </br>
-                <span class="icon-next">save and next</span>
+                SAVE AND NEXT
+                <span class="icon-next"></span>
               </button>
             </div>
           </div>
@@ -160,4 +169,5 @@
       <% end %>
     <% end %>
   </div>
-</div>
+</section>
+                  

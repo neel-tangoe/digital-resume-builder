@@ -1,8 +1,9 @@
 class CreateResumes < ActiveRecord::Migration[7.0]
   def change
     create_table :resumes do |t|
-      t.integer :user_id, null: false
+      t.references :user, null: false, foreign_key: true
       t.string :name, limit:50, null: false
+      t.string :email
       t.string :phone_number, limit: 50
       t.text :general_info 
       t.text :interests

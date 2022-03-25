@@ -1,7 +1,7 @@
 class CreateProjects < ActiveRecord::Migration[7.0]
   def change
     create_table :projects do |t|
-      t.integer :resume_id, null: false
+      t.references :resume, null: false, foreign_key: true
       t.string :client
       t.text :description, limit: 2000
       t.text :technologies

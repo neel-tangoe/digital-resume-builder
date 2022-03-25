@@ -1,7 +1,7 @@
-<% if @template_type == "pro" %>
-  <%= render "resumes/advance2" %>
-<% elsif @template_type == "intermediate"%>
-  <%= render "resumes/advance" %>
+<% if @template_type == "Advanced" %>
+  <%= render "resumes/advance_template" %>
+<% elsif @template_type == "Intermediate"%>
+  <%= render "resumes/intermediate_template" %>
 <% else %>
-  <%= render "resumes/normal" %>
+  <%= render "resumes/basic_template" %>
 <% end %>

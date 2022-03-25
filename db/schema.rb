@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_17_110143) do
+ActiveRecord::Schema.define(version: 2022_03_25_095241) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -41,46 +41,50 @@ ActiveRecord::Schema.define(version: 2022_02_17_110143) do
   end
 
   create_table "awards", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "resume_id", null: false
+    t.bigint "resume_id", null: false
     t.string "name", limit: 50, null: false
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["resume_id"], name: "index_awards_on_resume_id"
   end
 
   create_table "educations", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "resume_id", null: false
+    t.bigint "resume_id", null: false
     t.date "date_from"
     t.date "date_to"
     t.string "level"
     t.text "description"
     t.string "place"
+    t.string "course"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "course"
+    t.index ["resume_id"], name: "index_educations_on_resume_id"
   end
 
   create_table "jobs", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "resume_id", null: false
+    t.bigint "resume_id", null: false
+    t.date "date_from"
+    t.date "date_to"
     t.string "firm"
     t.string "position"
     t.string "place"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "date_from"
-    t.date "date_to"
-    t.text "description"
+    t.index ["resume_id"], name: "index_jobs_on_resume_id"
   end
 
   create_table "languages", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "resume_id", null: false
+    t.bigint "resume_id", null: false
     t.string "name", limit: 50, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["resume_id"], name: "index_languages_on_resume_id"
   end
 
   create_table "projects", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "resume_id", null: false
+    t.bigint "resume_id", null: false
     t.string "client"
     t.text "description"
     t.text "technologies"
@@ -91,11 +95,13 @@ ActiveRecord::Schema.define(version: 2022_02_17_110143) do
     t.date "date_to"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["resume_id"], name: "index_projects_on_resume_id"
   end
 
   create_table "resumes", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "name", limit: 50, null: false
+    t.string "email"
     t.string "phone_number", limit: 50
     t.text "general_info"
     t.text "interests"
@@ -106,16 +112,27 @@ ActiveRecord::Schema.define(version: 2022_02_17_110143) do
     t.string "website", limit: 50
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
+    t.index ["user_id"], name: "index_resumes_on_user_id"
+  end
+
+  create_table "share_cvs", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "resume_id", null: false
+    t.string "url"
+    t.string "theme"
+    t.boolean "publish", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resume_id"], name: "index_share_cvs_on_resume_id"
   end
 
   create_table "skills", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "resume_id", null: false
+    t.bigint "resume_id", null: false
     t.string "section"
     t.string "title"
     t.integer "percent"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["resume_id"], name: "index_skills_on_resume_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -124,15 +141,32 @@ ActiveRecord::Schema.define(version: 2022_02_17_110143) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at", precision: 6
     t.datetime "remember_created_at", precision: 6
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at", precision: 6
+    t.datetime "last_sign_in_at", precision: 6
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at", precision: 6
+    t.datetime "confirmation_sent_at", precision: 6
+    t.string "unconfirmed_email"
     t.string "first_name"
     t.string "last_name"
     t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "awards", "resumes"
+  add_foreign_key "educations", "resumes"
+  add_foreign_key "jobs", "resumes"
+  add_foreign_key "languages", "resumes"
+  add_foreign_key "projects", "resumes"
+  add_foreign_key "resumes", "users"
+  add_foreign_key "share_cvs", "resumes"
+  add_foreign_key "skills", "resumes"
 end

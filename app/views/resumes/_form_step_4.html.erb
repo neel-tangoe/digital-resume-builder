@@ -8,7 +8,8 @@
             <div class="col-12">
               <div class="text-center"><h4>Education</h4></div>
               <div id="educations">
-                <%= f.fields_for :educations, @resume.educations.build do |education| %>
+                <% edu =  @resume.educations.blank? ? @resume.educations.build : "" %>
+                <%= f.fields_for :educations, edu do |education| %>
                   <%= render 'educations_fields', f:education %>
                 <% end %>
 
@@ -24,7 +25,8 @@
             <div class="col-12">
               <div class="text-center"><h4>Languages</h4></div>
               <div id="languages">
-                <%= f.fields_for :languages, @resume.languages.build do |language| %>
+                <% lang =  @resume.languages.blank? ? @resume.languages.build : "" %>
+                <%= f.fields_for :languages, lang do |language| %>
                   <%= render 'languages_fields', f: language %>
                 <% end %>
                 <div class="text-right">
@@ -57,12 +59,14 @@
           <span class="icon-close-back">return</span>
         </a>
         <button class="btn btn-primary" id="saveMedia" name="save" type="submit">
-          <span class="icon-next">save</span>
+          SAVE
+          <span class="icon-next"></span>
         </button>
         <button class="btn btn-primary" type="submit">
           <br class="d-none d-md-block">
           </br>
-          <span class="icon-next">save and next</span>
+          SAVE AND NEXT
+          <span class="icon-next"></span>
         </button>
       </div>
     </div>

@@ -1,18 +1,23 @@
-<%= form_for(@resume, :url => (@resume.new_record? ? resumes_path : resume_path(@resume)), :method => (@resume.new_record? ? "POST" : "PUT"), :html => {:multipart => true, :id => 'user-form'}) do |f| %>
-  <%= hidden_field_tag "step", @step.to_i %>
-  <div class="row">
-    <div class="col-12 col-sm-9">
-      <div class="items-left wb-rounded">
-        <div class="item-header">
-          <div class="row mx-n2">
-            <div class="col-12">
-              <div class="text-center"><h4>Job Experience</h4></div>
-              <div id="jobs">
-                <%= f.fields_for :jobs do |job| %>
-                  <%= render 'jobs_fields', f: job %>
-                <% end %>
-                <div class="text-right">
-                  <%= link_to_add_association 'Add more', f, :jobs, partial: 'jobs_fields', class: 'add-buttons pull-right' %>
+<section class="section-details" >
+  <div class="container">
+    <%= form_for(@resume, :url => (@resume.new_record? ? resumes_path : resume_path(@resume)), :method => (@resume.new_record? ? "POST" : "PUT"), :html => {:multipart => true, :id => 'user-form'}) do |f| %>
+      <%= hidden_field_tag "step", @step.to_i %>
+      <div class="row">
+        <div class="col-12 col-sm-9">
+          <div class="items-left wb-rounded">
+            <div class="item-header">
+              <div class="row mx-n2">
+                <div class="col-12">
+                  <div class="text-center"><h4>Job Experience</h4></div>
+                  <div id="jobs">
+                    <% jb =  @resume.jobs.blank? ? @resume.jobs.build : "" %>
+                    <%= f.fields_for :jobs do |job| %>
+                      <%= render 'jobs_fields', f: job %>
+                    <% end %>
+                    <div class="text-right">
+                      <%= link_to_add_association 'Add more', f, :jobs, partial: 'jobs_fields', class: 'add-buttons pull-right' %>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -20,22 +25,27 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-sm-3">
-      <div class="items-btns">
-        <a class="btn btn-primary" href="<%= edit_resume_path(@resume, step: 2) %>">
-          <span class="icon-close-back">return</span>
-        </a>
-        <button class="btn btn-primary" id="saveMedia" name="save" type="submit">
-          <span class="icon-next">save</span>
-        </button>
-        <button class="btn btn-primary" name="proceed_next" type="submit">
-          <br class="d-none d-md-block">
-          </br>
-          <span class="icon-next">save and next</span>
-        </button>
+        <div class="col-12 col-sm-3">
+          <div class="items-btns">
+            <a class="btn btn-primary" href="<%= edit_resume_path(@resume, step: 2) %>">
+              RETURN
+              <span class="icon-close-back"></span>
+            </a>
+            <button class="btn btn-primary" id="saveMedia" name="save" type="submit">
+              SAVE
+              <span class="icon-next"></span>
+            </button>
+            <button class="btn btn-primary" name="proceed_next" type="submit">
+              <br class="d-none d-md-block">
+              </br>
+              SAVE AND NEXT
+              <span class="icon-next"></span>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</section>
 
     

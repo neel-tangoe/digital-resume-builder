@@ -1,22 +1,25 @@
 <header class="header">
-  <nav class="navbar navbar-light">
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div class="container">
-      <button class="navbar-toggler" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <%= image_tag "icon-agreement.svg", width: 70 %>
       <div class="nav-right mx-auto mr-sm-0">
         <ul class="navbar-nav">
           <% if user_signed_in? %>
-            <a class="nav-link" data-method="delete" href="/users/sign_out">
+            <a class="btn btn-dark" data-method="delete" href="/users/sign_out">
               <span class="icon-nav-sign-out"></span>
               Log Out
             </a>
+            <li class="nav-item active">
+              <a class="btn btn-primary", href="/resumes">
+              MY RESUMES
+            </a>
+            </li>
           <% else %>
             <li class="nav-item active">
-              <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+              <%= link_to "Log In", new_user_session_path, class: "btn btn-dark" %>
             </li>
             <li class="nav-item active">
-              <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-dark" %>
             </li>
           <% end %>
         </ul>
@@ -24,4 +27,5 @@
     </div>
   </nav>
 </header>
+            
             

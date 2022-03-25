@@ -146,7 +146,8 @@
   <i class="fa fa-twitter w3-hover-opacity"></i>
   <i class="fa fa-linkedin w3-hover-opacity"></i>
  <p class="w3-small">Share Your Resume</p>
- <a class="w3-button w3-round-xxlarge w3-small w3-light-grey w3-margin-bottom" href="#" target="_blank">Share Now</a> <!-- End footer -->
+  <%= social_share_button_tag('Share to Facebook', :url => share_resume_path(@resume), desc: @resume.name) %>
+  <%= link_to "Share Now", share_resume_path(@resume), class: "w3-button w3-round-xxlarge w3-small w3-light-grey w3-margin-bottom" %>
  </footer>
 
 </body>

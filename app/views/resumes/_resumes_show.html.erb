@@ -1,0 +1,34 @@
+<div class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4 pb-1">
+  <div class="items-message-group wb-rounded">
+    <div class="item-header row mx-0 align-items-center">
+      <div class="col-7 col-xl-8 px-0">
+        <div class="h4 mb-0">
+          <%= resume.name %>
+        </div>
+      </div>
+    </div>
+    <div class="item-body">
+      <div class="item-wrap item-icons">
+        <div class="item-image">
+          <%= image_tag resume.avtar if resume.avtar.attached? %>
+        </div>
+       
+        <div class="item-phone icon-left">
+          <%= resume.gender %>
+        </div>
+        <div class="item-email icon-left">
+          <%= resume.phone_number %>
+        </div>
+        <div class="item-email icon-left">
+          <%= resume.educations&.last&.place %>
+        </div>
+      </div>
+      <div class="item-action">
+        <a class="btn btn-primary btn-block btn-right-arrow" href="<%= choose_template_resume_path(resume)%>">
+          <%= "Open Resume" %>
+        </a>
+        <%= link_to "Delete", resume, method: :delete, class: 'btn btn-danger btn-block btn-right-arrow', data: {:confirm => 'Are you sure?'} %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -60,7 +60,7 @@
 
     <div class="col-12 col-lg-6">
       <div class="form-group form-group-label" id="resume-des">
-        <%= f.text_area :description, :class => "form-control",:placeholder => "Project Description" %>
+        <%= f.text_field :description, :class => "form-control",:placeholder => "Project Description" %>
         <label for="resume-des">
           Project Description
         </label>
@@ -69,7 +69,7 @@
 
     <div class="col-12 col-lg-6">
       <div class="form-group form-group-label" id="resume-tech">
-        <%= f.text_area :technologies, :class => "form-control",:placeholder => "Used Technologies" %>
+        <%= f.text_field :technologies, :class => "form-control",:placeholder => "Used Technologies" %>
         <label for="resume-tech">
           Used Technologies
         </label>
@@ -78,8 +78,8 @@
 
     
 
-    <div class="col-md-6">
-      <%= link_to_remove_association 'remove project', f, class: 'btn btn-danger btn-xs pull-right title' %>
+    <div class="col-md-6 pb-4">
+      <%= link_to_remove_association 'Remove Project', f, class: 'btn btn-danger btn-xs' %>
     </div>
   </div>
 </div>

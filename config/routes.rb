@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     member do
       get 'download'
       delete 'delete_attachment'
+      get 'choose_template'
+      get 'share'
     end
   end
   
@@ -26,6 +28,5 @@ Rails.application.routes.draw do
   #resources :sessions, only: [:create]
   
   root "home#index"
-
 end
 

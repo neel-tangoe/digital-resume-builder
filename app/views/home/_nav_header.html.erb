@@ -1,0 +1,9 @@
+<% if @nav_header_menus %>
+  <% @nav_header_menus.each do |menu| %>
+    <li class="page-li">
+      <%= link_to menu[:href], :class => (menu[:arrowBack].present? ? 'nav-back-link' : 'fxBtn') do %>
+        <%= menu[:label] %>
+      <% end %>
+    </li>
+  <% end %>
+<% end %>

@@ -72,6 +72,7 @@ hr{ border-color: #d8d8d8;}
 .row-10 > [class*=col-]{ padding-left: 10px; padding-right: 10px;}
 
 /* Header */
+.bg_image_cv{ background-image: image-url("homeimg.jpg"); background-repeat: no-repeat; width: 1024px; height:1024px;}
 .header{ background: #fff; position: relative; z-index: 9;}
 .navbar{ min-height: 50px;}
 .navbar-light .navbar-toggler{ border: none; padding: 0;}
@@ -548,6 +549,7 @@ a.items-lead-info:hover{ background-color: #fff;}
 .badge-danger{ background-color: #ff9b9b;}
 .pt10 {padding-top: 10px;}
 .pt20 {padding-top: 20px;}
+.pt50 {padding-top: 250px;}
 .pb120 {padding-bottom: 120px;}
 .p10 {padding: 10px;}
 .grayBg{ background: #f9f9f9;}

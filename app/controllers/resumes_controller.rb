@@ -26,10 +26,11 @@ class ResumesController < ApplicationController
   end
 
   def new
-    @step = 1
-    @resume = current_user.resumes.new
-    respond_to do |format|
-      format.html { render :template => "resumes/_form" }
+    if current_user.present?
+      @step = 1
+      @resume = current_user.resumes.new
+    else
+      redirect_to root_path, notice: "Please login first"
     end
   end
 
@@ -71,6 +72,29 @@ class ResumesController < ApplicationController
     @resume = current_user.resumes.find(params[:id])
     @resume.destroy
     redirect_to resumes_path
+  end
+
+  def choose_template
+    @resume = current_user.resumes.find(params[:id])
+  end
+
+  def share
+    resume = current_user.resumes.find(params[:id])
+    @share_cv = resume.share_cv ? resume.share_cv : ShareCv.new
+    
+    @share_cv.theme = "simple" if @share_cv && @share_cv.theme.nil?
+    if Rails.env.production?
+      bitly = Bitly.new("sreeharikmarar", "R_4f00b6fbbd62eaa6c81a48b9b0d7dab4")
+      b = bitly.shorten("http://#{request.host_with_port}/profile/"+current_user.id.to_s)
+      @url =  b.short_url
+    else
+      @url =  "http://#{request.host_with_port}/profile/"+current_user.id.to_s
+    end
+      
+    respond_to do |format|
+      format.html { }
+      format.js { }
+    end
   end
 
   private

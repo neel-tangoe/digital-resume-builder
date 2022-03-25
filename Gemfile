@@ -36,6 +36,8 @@ gem 'wicked_pdf'
 #pdf for local server
 gem 'wkhtmltopdf-binary'
 
+#sharing functionality
+gem 'social-share-button'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
