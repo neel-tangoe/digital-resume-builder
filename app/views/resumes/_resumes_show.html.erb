@@ -28,6 +28,7 @@
           <%= "Open Resume" %>
         </a>
         <%= link_to "Delete", resume, method: :delete, class: 'btn btn-danger btn-block btn-right-arrow', data: {:confirm => 'Are you sure?'} %>
+        <%= link_to 'Download', download_resume_path(resume.id, :format=> 'pdf'), class: 'btn btn-warning btn-block btn-right-arrow' %>
       </div>
     </div>
   </div>

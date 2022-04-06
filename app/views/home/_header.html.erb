@@ -1,7 +1,7 @@
 <header class="header">
   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div class="container">
-      <%= image_tag "icon-agreement.svg", width: 70 %>
+      </%= image_tag "icon-agreement.svg", width: 70 %>
       <div class="nav-right mx-auto mr-sm-0">
         <ul class="navbar-nav">
           <% if user_signed_in? %>
@@ -12,6 +12,11 @@
             <li class="nav-item active">
               <a class="btn btn-primary", href="/resumes">
               MY RESUMES
+            </a>
+            </li>
+            <li class="nav-item active pull-left">
+              <a class="btn btn-yellow", href="/">
+              HOME PAGE
             </a>
             </li>
           <% else %>

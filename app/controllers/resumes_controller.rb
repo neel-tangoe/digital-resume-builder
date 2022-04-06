@@ -17,7 +17,7 @@ class ResumesController < ApplicationController
       format.pdf do
         render :pdf => "#{@resume.name}",
                :layout => "pdf",
-               :template => "pdf/resume_template",
+               :template => "pdf/resume_template1",
                :margin => { :top => 10, :bottom => 10, :left => 10, :right => 10},
                :viewport_size => '1280x1024',
                disposition: 'attachment'
@@ -29,6 +29,7 @@ class ResumesController < ApplicationController
     if current_user.present?
       @step = 1
       @resume = current_user.resumes.new
+      @resume.skills.build unless @resume.skills.present?
     else
       redirect_to root_path, notice: "Please login first"
     end
@@ -43,7 +44,7 @@ class ResumesController < ApplicationController
     @step = params[:step]
     @resume = current_user.resumes.new(resume_params)
 
-    if @resume.save
+    if @resume.save!
       redirect_to edit_resume_path(@resume, step: 2 )
     else
       render 'new'
@@ -104,6 +105,6 @@ class ResumesController < ApplicationController
                                    languages_attributes: [:id, :name, :_destroy],
                                    projects_attributes:[:id, :date_from, :date_to, :client, :description, :technologies, :role, :level, :team_size, :_destroy],
                                    educations_attributes:[:id, :date_from, :date_to, :level, :description, :place, :course, :_destroy],
-                                   jobs_attributes:[:id, :date_from, :date_to, :firm, :description, :position, :place, :_destroy])
+                                   jobs_attributes: [:id, :date_from, :date_to, :firm, :description, :position, :place, :_destroy])
   end
 end
