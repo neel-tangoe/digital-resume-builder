@@ -23,7 +23,13 @@
       <h5 class="sub-title">CONTACT INFO</h5>
       <ul>
         <li>
+          <i class="fa fa-male"></i> <%= @resume.gender %>
+        </li>
+        <li>
           <i class="fa fa-phone"></i> <%= @resume.phone_number %>
+        </li>
+        <li>
+          <i class="fa fa-calendar"></i> <%= @resume.birthdate %>
         </li>
         <li>
           <i class="fa fa-envelope"></i> <%= @resume.email %>
@@ -31,6 +37,10 @@
         <li>
           <i class="fa fa-globe"></i> <%= @resume.website %>
         </li>
+        <li>
+          <i class="fa fa-music"></i> <%= @resume.interests %>
+        </li>
+
         <li>
           <i class="fa fa-map-marker"></i> <%= @resume.address %>
         </li>

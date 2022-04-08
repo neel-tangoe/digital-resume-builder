@@ -1,6 +1,10 @@
 <div class="row mb-n3 mb-md-n4">
   <div class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4 pb-1">
-    <%= link_to "Create new resume", new_resume_path, class: "items-add-user wb-rounded " %>
+    <a class="items-box" href="/resumes/choose_templates">
+      <div class="item-icon items-add-user wb-rounded">
+        <%= image_tag  "icon-create-customer.svg" %>
+      </div>
+    <a>
   </div>
   <% if @resumes.present?   %>
     <% @resumes.each do |resume| %>
