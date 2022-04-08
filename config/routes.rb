@@ -16,8 +16,11 @@ Rails.application.routes.draw do
     member do
       get 'download'
       delete 'delete_attachment'
-      get 'choose_template'
+      get 'choose_your_template'
       get 'share'
+    end
+    collection do
+      get 'choose_templates'
     end
   end
   

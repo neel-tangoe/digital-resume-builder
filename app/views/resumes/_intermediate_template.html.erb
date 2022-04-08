@@ -6,12 +6,12 @@
           <div class="page-header-image" data-parallax="true" style="background-image: url('images/cc-bg-1.jpg')"></div>
           <div class="container">
             <div class="content-center">
-              <div class="cc-profile-image">
-                <% if @resume.avtar.present? %>
-                  <div class='center'><%= image_tag @resume.avtar,:width=>"200", :height=>"200" %></div>
-                <% end %>
-              </div>
               <div class="row">
+                <div class="col-12 col-sm-6">
+                  <% if @resume.avtar.present? %>
+                    <%= image_tag @resume.avtar %>
+                  <% end %>
+                </div>
                 <div class="col-12">
                   <div class="pull-right"><h2><%= @resume.name %></h2></div>
                   <p class="category text-white"><Web Developer, Graphic Designer, Photographer></p>
@@ -43,12 +43,28 @@
               <div class="col-sm-8"><%= @resume.email %></div>
             </div>
             <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
+              <div class="col-sm-4"><strong class="text-uppercase">Gender:</strong></div>
+              <div class="col-sm-8"><%= @resume.gender %></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">Birthdate:</strong></div>
+              <div class="col-sm-8"><%= @resume.birthdate %></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">Contact:</strong></div>
               <div class="col-sm-8"><%= @resume.phone_number %></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">Website:</strong></div>
+              <div class="col-sm-8"><%= @resume.website %></div>
             </div>
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
               <div class="col-sm-8"><%= @resume.address %></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">Country:</strong></div>
+              <div class="col-sm-8"><%= @resume.country %></div>
             </div>
             <div class="row mt-3">
               <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>

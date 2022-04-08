@@ -26,6 +26,7 @@ class ResumesController < ApplicationController
   end
 
   def new
+    @resume_type = params[:type]
     if current_user.present?
       @step = 1
       @resume = current_user.resumes.new
@@ -76,6 +77,9 @@ class ResumesController < ApplicationController
   end
 
   def choose_template
+  end
+
+  def choose_your_template
     @resume = current_user.resumes.find(params[:id])
   end
 
@@ -96,6 +100,9 @@ class ResumesController < ApplicationController
       format.html { }
       format.js { }
     end
+  end
+
+  def choose_templates
   end
 
   private

@@ -2,6 +2,8 @@
   <%= render "resumes/advance_template" %>
 <% elsif @template_type == "Intermediate"%>
   <%= render "resumes/intermediate_template" %>
+<% elsif @template_type == "Pro"%>
+  <%= render "resumes/_template_4" %>
 <% else %>
   <%= render "resumes/basic_template" %>
 <% end %>

@@ -1,9 +1,15 @@
 <div class="container card">
   <div class="row">
     <div class="col-12 col-md-4 col-md-offset-2">
-      <h3 class="worker-name"> <%= @resume.name %></h3>
-      <h5 class="worker-info"> <%= @resume.email %></h5>
-      <p class="worker-info"><%= @resume.general_info %></p>
+      <h2 class="worker-name"> <%= @resume.name %></h2>
+      <h5><div class="project-fields"><strong>Birthdate</strong>: <%= @resume.birthdate %></div></h5>
+      <h5><div class="project-fields"><strong>Gender</strong>: <%= @resume.gender %></div></h5>
+      <h5 class="worker-info"><div class="project-fields"><strong>Email</strong>: <%= @resume.email %></div></h5>
+      <h5><div class="project-fields"><strong>Address</strong>: <%= @resume.address %></div></h5>
+      <h5><div class="project-fields"><strong>Country</strong>: <%= @resume.country %></div></h5>
+      <h5><div class="project-fields"><strong>Website</strong>: <%= @resume.website %></div></h5>
+      <h5><div class="project-fields"><strong>Contact</strong>: <%= @resume.phone_number %></div></h5>
+      <h5><div class="project-fields"><strong>About Me</strong>: <%= @resume.general_info %></div></h5>
     </div>
     <div class="col-12 col-md-5"></div>
     <div class="col-12 col-md-3">
@@ -96,7 +102,7 @@
           </div>
           <% if education.level.empty? %>
             <div class="project-fields">
-              <strong>Description</strong>: <%= education.description %>
+              <strong>CGPA</strong>: <%= education.description %>
             </div>
           <% else %>
             <div class="project-fields">

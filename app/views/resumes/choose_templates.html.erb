@@ -1,0 +1,50 @@
+<section class="section-box">
+  <div class="container">
+    <div class="text-center"><h1><strong>Create a Job Winning Resume Now</strong></h1></div>
+    <div class="row row-md-17">
+      
+      
+      <div class="col-12 col-sm-6 col-lg-6">
+        <a class="items-box" href="<%= new_resume_path(:type => "Normal") %>">
+          <div class="item-icon">
+            <%= image_tag  "Basic-Template.jpeg" %>
+          </div>
+          <div class="item-name">
+            <%= "BASCIS" %>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-6">
+        <a class="items-box" href="<%= new_resume_path(:type => "Intermediate") %>">
+          <div class="item-icon">
+            <%= image_tag  "Choose_template_intermediate.jpeg", :width => "50" %>
+          </div>
+          <div class="item-name">
+            <%= "Intermediate" %>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-6 pt-4">
+        <a class="items-box" href="<%= new_resume_path(:type => "Advanced") %>">
+          <div class="item-icon">
+            <%= image_tag  "Choose_template_advance.jpeg" %>
+          </div>
+          <div class="item-name">
+            <%= "Advanced" %>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-6 pt-4">
+        <a class="items-box" href="<%= new_resume_path(:type => "Pro") %>">
+          <div class="item-icon">
+            <%= image_tag  "Pro_Template.jpeg" %>
+          </div>
+          <div class="item-name">
+            <%= "Pro" %>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <%= render 'home/footer' %>
+</section>

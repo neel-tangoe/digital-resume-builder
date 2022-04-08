@@ -2,13 +2,15 @@
   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div class="container">
       </%= image_tag "icon-agreement.svg", width: 70 %>
+      <a class="nav-item btn" colour="black" href="/"><strong>Digital Resume Builder</strong></a>
       <div class="nav-right mx-auto mr-sm-0">
         <ul class="navbar-nav">
           <% if user_signed_in? %>
-            <a class="btn btn-dark" data-method="delete" href="/users/sign_out">
-              <span class="icon-nav-sign-out"></span>
-              Log Out
-            </a>
+            <li class="nav-item active">
+              <a class="btn btn-dark", data-method="delete", href="/users/sign_out">
+                Log Out
+              </a>
+            </li>
             <li class="nav-item active">
               <a class="btn btn-primary", href="/resumes">
               MY RESUMES

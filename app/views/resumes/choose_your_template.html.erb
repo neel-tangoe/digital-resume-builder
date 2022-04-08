@@ -1,0 +1,46 @@
+<section class="section-box">
+  <div class="container">
+    <div class="row row-md-17">
+      <div class="col-12 col-sm-6 col-lg-6">
+        <a class="items-box" href="<%= resume_path(@resume, :type => "Normal") %>">
+          <div class="item-icon">
+            <%= image_tag  "Basic3:4 .jpeg" %>
+          </div>
+          <div class="item-name">
+            <%= "BASCIS" %>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-6">
+        <a class="items-box" href="<%= resume_path(@resume, :type => "Intermediate") %>">
+          <div class="item-icon">
+            <%= image_tag  "Intermediate3:4.jpeg", :width => "50" %>
+          </div>
+          <div class="item-name">
+            <%= "INTERMEDIATE" %>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-6 pt-4">
+        <a class="items-box" href="<%= resume_path(@resume, :type => "Advanced") %>">
+          <div class="item-icon">
+            <%= image_tag  "Advance3:4.jpg" %>
+          </div>
+          <div class="item-name">
+            <%= "ADVANCED" %>
+          </div>
+        </a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-6 pt-4">
+        <a class="items-box" href="<%= resume_path(@resume, :type => "Pro") %>">
+          <div class="item-icon">
+            <%= image_tag  "Pro_template.jpeg" %>
+          </div>
+          <div class="item-name">
+            <%= "PRO" %>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,168 +1,167 @@
 <section class="section-details" >
-  <div class="container">
-    <%= form_for(@resume, :url => (@resume.new_record? ? resumes_path : resume_path(@resume)), :method => (@resume.new_record? ? "POST" : "PUT") ) do |f| %>
-      <%= hidden_field_tag "step", @step.to_i %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <div class="row">
-        <div class="col-12 col-sm-9">
-          <div class="items-left wb-rounded">
-            <div class="item-header">
-              <div class="row mx-n2">
-                <div class="col-12">
-                  <div class="text-center"><h4>Basic information</h4></div>
-                </div>
-              </div>
-            </div>
-            <div class="item-body">
-              <div class="row">
-                <div class="col-12 col-sm-6">
-                  <div class="form-group form-group-label" id="resume-name">
-                    <%= f.text_field :name, :class => "form-control",:placeholder => "Name" %>
-                    <label for="resume-name">
-                      Name
-                    </label>
-                    <% if @resume.errors[:name].any? %>
-                      <span class="text-error" id="text-message"><%= @resume.errors[:name].first %></span>
-                    <% end %>
-                  </div>
-                </div> 
-
-                <div class="col-12 col-sm-6">
-                  <div class="form-group form-group-label" id="resume-email">
-                    <%= f.text_field :email, :class => "form-control",:placeholder => "Email Address" %>
-                    <label for="resume-email">
-                      Email
-                    </label>
-                    <% if @resume.errors[:email].any? %>
-                      <span class="text-error" id="text-message"><%= @resume.errors[:email].first %></span>
-                    <% end %>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group form-group-label" id="resume-interests">
-                    <%= f.text_field :interests, :class => "form-control",:placeholder => "Interests" %>
-                    <label for="resume-interests">
-                      Interests
-                    </label>
-                  </div>
-                </div>
-
-                
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group">
-                    <% gender = [["Male", "MALE"], ["Female", "FEMALE"], ["Other", "OTHER"]] %>
-                    <%= f.select :gender, gender, {}, class: 'ever-inputs form-control', placeholder: 'Gender' %>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group form-group-label" id="resume-bdate">
-                    <%= f.date_field :birthdate, :class => "form-control",:placeholder => "Birthdate" %>
-                    <label for="resume-bdate">
-                      Birthdate
-                    </label>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group form-group-label" id="resume-name">
-                    <%= f.text_field :address, :class => "form-control",:placeholder => "Address" %>
-                    <label for="resume-address">
-                      Address
-                    </label>
-                    <% if @resume.errors[:address].any? %>
-                      <span class="text-error" id="text-message"><%= @resume.errors[:address].first %></span>
-                    <% end %>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group form-group-label" id="resume-country">
-                    <%= f.text_field :country, :class => "form-control",:placeholder => "Country" %>
-                    <label for="resume-country">
-                      Country
-                    </label>
-                    <% if @resume.errors[:country].any? %>
-                      <span class="text-error" id="text-message"><%= @resume.errors[:country].first %></span>
-                    <% end %>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group form-group-label" id="resume-website">
-                    <%= f.text_field :website, :class => "form-control",:placeholder => "Website" %>
-                    <label for="resume-website">
-                      Website
-                    </label>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group form-group-label" id="resume-phone">
-                    <%= f.text_field :phone_number, :class => "form-control",:placeholder => "Phone Number" %>
-                    <label for="resume-phone">
-                      Contact Info
-                    </label>
-                    <% if @resume.errors[:phone_number].any? %>
-                      <span class="text-error" id="text-message"><%= @resume.errors[:phone_number].first %></span>
-                    <% end %>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <div class="form-group form-group-label" id="resume-geninfo">
-                    <%= f.text_field :general_info, :class => "form-control",:placeholder => "About You" %>
-                    <label for="resume-geninfo">
-                      About You
-                    </label>
-                    <% if @resume.errors[:general_info].any? %>
-                      <span class="text-error" id="text-message"><%= @resume.errors[:general_info].first %></span>
-                    <% end %>
-                  </div>
-                </div>
-                <div class="col-12 seperator pt-2">
-                  <hr class="mt-0 mb-3 mb-md-4 pt-2">
-                </div>
+  <%= form_for(@resume, :url => (@resume.new_record? ? resumes_path : resume_path(@resume)), :method => (@resume.new_record? ? "POST" : "PUT") ) do |f| %>
+    <%= hidden_field_tag "step", @step.to_i %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="row">
+      <div class="col-12 col-sm-6">
+        <div class="row">
+          <div class="col-12 col-sm-9 pl-5">
+            <div class="items-left wb-rounded">
+              <div class="item-header">
                 <div class="row mx-n2">
                   <div class="col-12">
-                    <div class="text-center"><h4>Skills</h4></div>
-                    <div class="col-12 seperator pt-2">
-                      <hr class="mt-0 mb-3 mb-md-4 pt-2">
+                    <div class="text-center"><h4>Basic information</h4></div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-body">
+                <div class="row">
+                  <div class="col-12 col-sm-6">
+                    <div class="form-group form-group-label" id="resume-name">
+                      <%= f.text_field :name, :class => "form-control",:placeholder => "Name" %>
+                      <label for="resume-name">
+                        Name
+                      </label>
+                      <% if @resume.errors[:name].any? %>
+                        <span class="text-error" id="text-message"><%= @resume.errors[:name].first %></span>
+                      <% end %>
                     </div>
-                    <%= f.fields_for :skills do |skill| %>
-                      <%= render 'skill_fields', f: skill %>
-                    <% end %>
-                    <div class="text-right">
-                      <%= link_to_add_association 'Add skills', f, :skills, partial: 'skill_fields', class: 'add-buttons pull-right' %>
+                  </div> 
+
+                  <div class="col-12 col-sm-6">
+                    <div class="form-group form-group-label" id="resume-email">
+                      <%= f.text_field :email, :class => "form-control",:placeholder => "Email Address" %>
+                      <label for="resume-email">
+                        Email
+                      </label>
+                      <% if @resume.errors[:email].any? %>
+                        <span class="text-error" id="text-message"><%= @resume.errors[:email].first %></span>
+                      <% end %>
                     </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group form-group-label" id="resume-interests">
+                      <%= f.text_field :interests, :class => "form-control",:placeholder => "Interests" %>
+                      <label for="resume-interests">
+                        Interests
+                      </label>
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group">
+                      <% gender = [["Male", "MALE"], ["Female", "FEMALE"], ["Other", "OTHER"]] %>
+                      <%= f.select :gender, gender, {include_blank:true}, class: 'ever-inputs form-control', placeholder: 'Gender' %>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group form-group-label" id="resume-bdate">
+                      <%= f.date_field :birthdate, :class => "form-control",:placeholder => "Birthdate" %>
+                      <label for="resume-bdate">
+                        Birthdate
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group form-group-label" id="resume-name">
+                      <%= f.text_field :address, :class => "form-control",:placeholder => "Address" %>
+                      <label for="resume-address">
+                        Address
+                      </label>
+                      <% if @resume.errors[:address].any? %>
+                        <span class="text-error" id="text-message"><%= @resume.errors[:address].first %></span>
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group form-group-label" id="resume-country">
+                      <%= f.text_field :country, :class => "form-control",:placeholder => "Country" %>
+                      <label for="resume-country">
+                        Country
+                      </label>
+                      <% if @resume.errors[:country].any? %>
+                        <span class="text-error" id="text-message"><%= @resume.errors[:country].first %></span>
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group form-group-label" id="resume-website">
+                      <%= f.text_field :website, :class => "form-control",:placeholder => "Website" %>
+                      <label for="resume-website">
+                        Website
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group form-group-label" id="resume-phone">
+                      <%= f.text_field :phone_number, :class => "form-control",:placeholder => "Phone Number" %>
+                      <label for="resume-phone">
+                        Contact Info
+                      </label>
+                      <% if @resume.errors[:phone_number].any? %>
+                        <span class="text-error" id="text-message"><%= @resume.errors[:phone_number].first %></span>
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <div class="form-group form-group-label" id="resume-geninfo">
+                      <%= f.text_field :general_info, :class => "form-control",:placeholder => "About You" %>
+                      <label for="resume-geninfo">
+                        About You
+                      </label>
+                      <% if @resume.errors[:general_info].any? %>
+                        <span class="text-error" id="text-message"><%= @resume.errors[:general_info].first %></span>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="col-12 seperator pt-2">
+                    <hr class="mt-0 mb-3 mb-md-4 pt-2">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-sm-3">
-          <div class="items-btns">
-            <a class="btn btn-primary" href="<%= resumes_path %>">
-              RETURN  
-              <span class="icon-close-back"></span>
-            </a>
-            <button class="btn btn-primary" id="saveMedia" name="save" type="submit">
-              SAVE
-              <span class="icon-next"></span>
-            </button>
-            <button class="btn btn-primary" name="proceed_next" type="submit">
-              <br class="d-none d-md-block">
-              </br>
-              SAVE AND NEXT
-              <span class="icon-next"></span>
-            </button>
+          <div class="col-12 col-sm-3">
+            <div class="items-btns">
+              <a class="btn btn-primary" href="<%= resumes_path %>">
+                RETURN  
+                <span class="icon-close-back"></span>
+              </a>
+              <button class="btn btn-primary" id="saveMedia" name="save" type="submit">
+                SAVE
+                <span class="icon-next"></span>
+              </button>
+              <button class="btn btn-primary" name="proceed_next" type="submit">
+                <br class="d-none d-md-block">
+                </br>
+                CONTINUE BUILDING
+                <span class="icon-next"></span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
+      <div class="col-12 col-sm-6">
+        <% if @resume_type == "Advanced" %>
+          <%= render "preview_template_3" %>
+        <% elsif @resume_type == "Intermediate" %>
+          <%= render "preview_template_2" %>
+        <% elsif @resume_type == "Pro" %>
+          <%= render "preview_template_4" %>
+        <% else %>
+          <%= render "preview_template_1" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </section>
                   

@@ -1,0 +1,97 @@
+<!--GOOGLE FONTS-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Ubuntu&display=swap" rel="stylesheet">
+<!--PLUGIN-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<!--FONT AWESOME-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--EXTERNAL CSS-->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <section class="section_left">
+      <center>
+        <% if @resume.avtar.present? %>
+          <div class='center'><%= image_tag @resume.avtar %></div>
+        <% end %>
+        <h1 class="title"><%= @resume.name %></h1>
+      </center>
+      <hr>
+      </hr>
+      <h5 class="sub-title">CONTACT INFO</h5>
+      <ul>
+        <li>
+          <i class="fa fa-phone"></i> <%= @resume.phone_number %>
+        </li>
+        <li>
+          <i class="fa fa-envelope"></i> <%= @resume.email %>
+        </li>
+        <li>
+          <i class="fa fa-globe"></i> <%= @resume.website %>
+        </li>
+        <li>
+          <i class="fa fa-map-marker"></i> <%= @resume.address %>
+        </li>
+        <ul>
+          <h5 class="sub-title">EDUCATION</h5>
+          <% if @resume.educations.present? %>
+            <% @resume.educations.each do |education| %>
+            <div class="w3-container">
+                <p class="w3-text-teal"><b><%= education.level %> - <%= education.course %></b></p>
+                <p class="w3-text-teal"><b><%= education.place %></b></p>
+                <p class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= "#{education.date_from&.strftime("%B %Y")} - #{education.date_to&.strftime("%B %Y")}" %></p>
+                <hr>
+              </div>
+            <% end %>
+          <% end %>
+          <h5 class="sub-title">LANGUAGE</h5>
+            <% if @resume.languages.present? %>
+              <% @resume.languages.each do |language| %>
+                <p><%= language.name %></p>
+              <% end %>
+            <% end %>
+    </section>
+    <section class="section_right">
+      <h1 class="title">ABOUT ME</h1>
+      <p><%= @resume.general_info %></p>
+      <hr>
+      <h1 class="title">WORK EXPERIENCE</h1>
+      <% if @resume.jobs.present? %>
+        <% @resume.jobs.each do |job| %>
+          <h5 class="sub-title"><%= job&.position %></h5>
+          <p><b><%= job&.place %></b></p>
+          <p><%= job&.description %></p>
+          <em style="float:right;"><%= "#{job.date_from&.strftime("%B %Y")} - #{job.date_to&.strftime("%B %Y")}" %></em>
+        <% end %>
+      <% end %>
+      <hr>
+      <h1 class="title">PROJECTS</h1>
+      <% if @resume.projects.present? %>
+        <% @resume.projects.each do |project| %>
+          <h5 class="sub-title"><%= @project&.role %></h5>
+          <p><b><%= project&.technologies %></b></p>
+          <p><%= project&.description %></p>
+          <em style="float:right;"><%= "#{project.date_from&.strftime("%B %Y")} - #{project.date_to&.strftime("%B %Y")}" %></em>
+        <% end %>
+      <% end %>
+      <hr>
+      <h1 class="title">SKILLS</h1>
+      <% if @resume.skills.present? %>
+        <% @resume.skills.each do |skill| %>
+          <table>
+            <tr>
+              <td> <%= skill.title %> </td>
+              <td>
+                <div class="progress_container">
+                  <div class="progress_bar" style="width:<%= skill.percent %>%;"></div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      <% end %>
+    </section>
+  </div>
+  

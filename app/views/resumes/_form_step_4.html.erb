@@ -1,75 +1,93 @@
-<%= form_for(@resume, :url => (@resume.new_record? ? resumes_path : resume_path(@resume)), :method => (@resume.new_record? ? "POST" : "PUT"), :html => {:multipart => true, :id => 'user-form'}) do |f| %>
-  <%= hidden_field_tag "step", @step.to_i %>
-  <div class="row">
-    <div class="col-12 col-sm-9">
-      <div class="items-left wb-rounded">
-        <div class="item-header">
-          <div class="row mx-n2">
-            <div class="col-12">
-              <div class="text-center"><h4>Education</h4></div>
-              <div id="educations">
-                <% edu =  @resume.educations.blank? ? @resume.educations.build : "" %>
-                <%= f.fields_for :educations, edu do |education| %>
-                  <%= render 'educations_fields', f:education %>
-                <% end %>
+<section class="section-details" >
+  <div class="container">
+    <%= form_for(@resume, :url => (@resume.new_record? ? resumes_path : resume_path(@resume)), :method => (@resume.new_record? ? "POST" : "PUT"), :html => {:multipart => true, :id => 'user-form'}) do |f| %>
+      <%= hidden_field_tag "step", @step.to_i %>
+      <div class="row">
+        <div class="col-12 col-sm-9">
+          <div class="items-left wb-rounded">
+            <div class="item-header">
+              <div class="row mx-n2">
+                <div class="col-12">
+                  <div class="text-center"><h4>Education</h4></div>
+                  <div id="educations">
+                    <% edu =  @resume.educations.blank? ? @resume.educations.build : "" %>
+                    <%= f.fields_for :educations, edu do |education| %>
+                      <%= render 'educations_fields', f:education %>
+                    <% end %>
 
-                <div class="text-right">
-                  <%= link_to_add_association 'Add more', f, :educations, partial: 'educations_fields', class: 'add-buttons pull-right' %>
+                    <div class="text-right">
+                      <%= link_to_add_association 'Add more', f, :educations, partial: 'educations_fields', class: 'add-buttons pull-right' %>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <hr>
-        
-          <div class="row mx-n2">
-            <div class="col-12">
-              <div class="text-center"><h4>Languages</h4></div>
-              <div id="languages">
-                <% lang =  @resume.languages.blank? ? @resume.languages.build : "" %>
-                <%= f.fields_for :languages, lang do |language| %>
-                  <%= render 'languages_fields', f: language %>
-                <% end %>
-                <div class="text-right">
-                  <%= link_to_add_association 'Add more languages', f, :languages, partial: 'languages_fields', class: 'add-buttons' %>
+              <hr>
+              <div class="row mx-n2">
+                <div class="col-12">
+                  <div class="text-center"><h4>Skills</h4></div>
+                  <div id="skills">
+                    <% skil =  @resume.skills.blank? ? @resume.skills.build : "" %>
+                    <%= f.fields_for :skills, skil do |skill| %>
+                      <%= render 'skill_fields', f: skill %>
+                    <% end %>
+                    <div class="text-right">
+                      <%= link_to_add_association 'Add skills', f, :skills, partial: 'skill_fields', class: 'add-buttons pull-right' %>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <hr>
-        
-      
-          <div class="row mx-n2">
-            <div class="col-12">
-              <div class="text-center"><h4>Upload Image</h4></div>
-              <div id="languages">
-                <%= f.file_field :avtar, :class => "form-control" %>
-                <% if f.object.avtar.present? %>
-                  <%= image_tag(f.object.avtar)  %>
-                  <%= link_to 'Remove',delete_attachment_resume_path(:id => @resume.avtar.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %>
+              <hr>
+              <div class="row mx-n2">
+                <div class="col-12">
+                  <div class="text-center"><h4>Languages</h4></div>
+                  <div id="languages">
+                    <% lang =  @resume.languages.blank? ? @resume.languages.build : "" %>
+                    <%= f.fields_for :languages, lang do |language| %>
+                      <%= render 'languages_fields', f: language %>
+                    <% end %>
+                    <div class="text-right">
+                      <%= link_to_add_association 'Add more languages', f, :languages, partial: 'languages_fields', class: 'add-buttons' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+            
+          
+              <div class="row mx-n2">
+                <div class="col-12">
+                  <div class="text-center"><h4>Upload Image</h4></div>
+                  <div id="languages">
+                    <%= f.file_field :avtar, :class => "form-control" %>
+                    <% if f.object.avtar.present? %>
+                      <%= image_tag(f.object.avtar)  %>
+                      <%= link_to 'Remove',delete_attachment_resume_path(:id => @resume.avtar.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="col-12 col-sm-3">
+          <div class="items-btns">
+            <a class="btn btn-primary" href="<%= edit_resume_path(@resume, step: 3) %>">
+              RETURN
+              <span class="icon-close-back"></span>
+            </a>
+            <button class="btn btn-primary" id="saveMedia" name="save" type="submit">
+              SAVE
+              <span class="icon-next"></span>
+            </button>
+            <button class="btn btn-primary" type="submit">
+              <br class="d-none d-md-block">
+              </br>
+              SAVE AND NEXT
+              <span class="icon-next"></span>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-12 col-sm-3">
-      <div class="items-btns">
-        <a class="btn btn-primary" href="<%= edit_resume_path(@resume, step: 3) %>">
-          RETURN
-          <span class="icon-close-back"></span>
-        </a>
-        <button class="btn btn-primary" id="saveMedia" name="save" type="submit">
-          SAVE
-          <span class="icon-next"></span>
-        </button>
-        <button class="btn btn-primary" type="submit">
-          <br class="d-none d-md-block">
-          </br>
-          SAVE AND NEXT
-          <span class="icon-next"></span>
-        </button>
-      </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</section>

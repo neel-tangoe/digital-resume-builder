@@ -1,16 +1,6 @@
 <div class="nested-fields">
   <div class="row">
-    <div class="col-12 col-lg-6">
-      <div class="form-group form-group-label" id="resume-section">
-        <%= f.text_field :section, :class => "form-control",:placeholder => "Section" %>
-        <label for="resume-section">
-          Section
-        </label>
-      </div>
-    </div>
-
-
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-md-6">
       <div class="form-group form-group-label" id="resume-title">
         <%= f.text_field :title, :class => "form-control",:placeholder => "Title" %>
         <label for="resume-title">
@@ -19,7 +9,7 @@
       </div>
     </div>
 
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-md-6">
       <div class="form-group form-group-label" id="resume-percent">
         <%= f.text_field :percent, :class => "form-control",:placeholder => "Percent" %>
         <label for="resume-percent">
@@ -29,7 +19,7 @@
     </div>
 
     <div class="col-md-6">
-      <%= link_to_remove_association 'remove skill', f, class: 'btn btn-transparent btn-xs pull-right title' %>
+      <%= link_to_remove_association 'remove skill', f, class: 'btn btn-danger btn-xs' %>
     </div>
   </div>
 </div>
