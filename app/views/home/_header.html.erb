@@ -2,34 +2,31 @@
   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div class="container">
       </%= image_tag "icon-agreement.svg", width: 70 %>
-      <a class="nav-item btn" colour="black" href="/"><strong>Digital Resume Builder</strong></a>
-      <div class="nav-right mx-auto mr-sm-0">
-        <ul class="navbar-nav">
-          <% if user_signed_in? %>
-            <li class="nav-item active">
-              <a class="btn btn-dark", data-method="delete", href="/users/sign_out">
+      <div class="col-12 col-sm-6 text-center">
+        <ul class="nav-page mr-auto" >
+          <%= render "home/nav_header" %>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6">
+        <div class="nav-right mx-auto mr-sm-0">
+          <ul class="nav-page mr-auto">
+            <% if user_signed_in? %>
+              <a class="btn page-li text-right", href="/resumes">
+                My Resumes
+              </a>
+              <a class="btn page-li text-right", data-method="delete", href="/users/sign_out">
                 Log Out
               </a>
-            </li>
-            <li class="nav-item active">
-              <a class="btn btn-primary", href="/resumes">
-              MY RESUMES
-            </a>
-            </li>
-            <li class="nav-item active pull-left">
-              <a class="btn btn-yellow", href="/">
-              HOME PAGE
-            </a>
-            </li>
-          <% else %>
-            <li class="nav-item active">
-              <%= link_to "Log In", new_user_session_path, class: "btn btn-dark" %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-dark" %>
-            </li>
-          <% end %>
-        </ul>
+            <% else %>
+              <a class="btn page-li text-right">
+                <%= link_to "Log In", new_user_session_path %>
+              </a>
+              <a class="btn page-li text-right">
+                <%= link_to "Sign Up", new_user_registration_path %>
+              </a>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>

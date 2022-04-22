@@ -23,176 +23,177 @@
         </div>
       </div>
     </div>
+  </div>
       
-<div class="section" id="about">
-  <div class="container">
-    <div class="card" data-aos="fade-up" data-aos-offset="10">
-      <div class="row">
-        <div class="col-lg-6 col-md-12">
-          <div class="card-body">
-            <div class="h4 mt-0 title">About</div>
-            <p>Hello! I am <%= @resume.name %></p>
-            <p><%= @resume.general_info %></p>
+  <div class="section" id="about">
+    <div class="container">
+      <div class="card" data-aos="fade-up" data-aos-offset="10">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <div class="card-body">
+              <div class="h4 mt-0 title">About</div>
+              <p>Hello! I am <%= @resume.name %></p>
+              <p><%= @resume.general_info %></p>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-6 col-md-12">
-          <div class="card-body">
-            <div class="h4 mt-0 title">Basic Information</div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-              <div class="col-sm-8"><%= @resume.email %></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Gender:</strong></div>
-              <div class="col-sm-8"><%= @resume.gender %></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Birthdate:</strong></div>
-              <div class="col-sm-8"><%= @resume.birthdate %></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Contact:</strong></div>
-              <div class="col-sm-8"><%= @resume.phone_number %></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Website:</strong></div>
-              <div class="col-sm-8"><%= @resume.website %></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
-              <div class="col-sm-8"><%= @resume.address %></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Country:</strong></div>
-              <div class="col-sm-8"><%= @resume.country %></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
-              <div class="col-sm-8"><%= @resume.languages.pluck(:name).join(", ") %></div>
+          <div class="col-lg-6 col-md-12">
+            <div class="card-body">
+              <div class="h4 mt-0 title">Basic Information</div>
+              <div class="row mt-3">
+                <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
+                <div class="col-sm-8"><%= @resume.email %></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-sm-4"><strong class="text-uppercase">Gender:</strong></div>
+                <div class="col-sm-8"><%= @resume.gender %></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-sm-4"><strong class="text-uppercase">Birthdate:</strong></div>
+                <div class="col-sm-8"><%= @resume.birthdate %></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-sm-4"><strong class="text-uppercase">Contact:</strong></div>
+                <div class="col-sm-8"><%= @resume.phone_number %></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-sm-4"><strong class="text-uppercase">Website:</strong></div>
+                <div class="col-sm-8"><%= @resume.website %></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
+                <div class="col-sm-8"><%= @resume.address %></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-sm-4"><strong class="text-uppercase">Country:</strong></div>
+                <div class="col-sm-8"><%= @resume.country %></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
+                <div class="col-sm-8"><%= @resume.languages.pluck(:name).join(", ") %></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="section">
-  <div class="container cc-education">
-    <div class="h4 text-center mb-4 title">Education</div>
-    <% if @resume.educations.present? %>
-      <% @resume.educations.each do |education| %>
-        <div class="card">
-          <div class="row">
-            <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-              <div class="card-body cc-education-header">
-                <p><%= "#{education.date_from&.strftime("%B %Y")} - #{education.date_to&.strftime("%B %Y")}" %></p>
-                <div class="h5"><%= education.level %></div>
-              </div>
-            </div>
-
-            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-              <div class="card-body">
-                <div class="h5"><%= education.course %></div>
-                <p class="category"><%= education.place %></p>
-                <p><%= education.description %></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-
-<div class="section" id="skill">
-  <div class="container">
-    <div class="h4 text-center mb-4 title">Professional Skills</div>
-    <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-      <div class="card-body">
-        <div class="row">
-          <% if @resume.skills.present? %>
-            <% @resume.skills.each do |skill| %>
-              <div class="col-md-6">
-                <div class="progress-container progress-primary"><span class="progress-badge"><%= skill.title %></span>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= skill.percent %>%;"></div><span class="progress-value"><%= skill.percent %></span>
-                  </div>
+  <div class="section">
+    <div class="container cc-education">
+      <div class="h4 text-center mb-4 title">Education</div>
+      <% if @resume.educations.present? %>
+        <% @resume.educations.each do |education| %>
+          <div class="card">
+            <div class="row">
+              <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                <div class="card-body cc-education-header">
+                  <p><%= "#{education.date_from&.strftime("%B %Y")} - #{education.date_to&.strftime("%B %Y")}" %></p>
+                  <div class="h5"><%= education.level %></div>
                 </div>
               </div>
+
+              <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                <div class="card-body">
+                  <div class="h5"><%= education.course %></div>
+                  <p class="category"><%= education.place %></p>
+                  <p><%= education.description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="section" id="skill">
+    <div class="container">
+      <div class="h4 text-center mb-4 title">Professional Skills</div>
+      <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+        <div class="card-body">
+          <div class="row">
+            <% if @resume.skills.present? %>
+              <% @resume.skills.each do |skill| %>
+                <div class="col-md-6">
+                  <div class="progress-container progress-primary"><span class="progress-badge"><%= skill.title %></span>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= skill.percent %>%;"></div><span class="progress-value"><%= skill.percent %></span>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<div class="section" id="experience">
-  <div class="container cc-experience">
-    <div class="h4 text-center mb-4 title">Project Experience</div>
-    <% if @resume.projects.present? %>
-      <% @resume.projects.each do |project| %>
-        <div class="card">
-          <div class="row">
-            <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-              <div class="card-body cc-experience-header">
-                <p><%= "#{project.date_from&.strftime("%B %Y")} - #{project.date_to&.strftime("%B %Y")}" %></p>
-                <div class="h5"><%= project.client %></div>
+  <div class="section" id="experience">
+    <div class="container cc-experience">
+      <div class="h4 text-center mb-4 title">Project Experience</div>
+      <% if @resume.projects.present? %>
+        <% @resume.projects.each do |project| %>
+          <div class="card">
+            <div class="row">
+              <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                <div class="card-body cc-experience-header">
+                  <p><%= "#{project.date_from&.strftime("%B %Y")} - #{project.date_to&.strftime("%B %Y")}" %></p>
+                  <div class="h5"><%= project.client %></div>
+                </div>
               </div>
-            </div>
-            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-              <div class="card-body">
-                <div class="h5"><%= project.technologies %></div>
-                <p><%= project.description %></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-
-<div class="section" id="experience">
-  <div class="container cc-experience">
-    <div class="h4 text-center mb-4 title">Work Experience</div>
-    <% if @resume.jobs.present? %>
-      <% @resume.jobs.each do |job| %>
-        <div class="card">
-          <div class="row">
-            <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-              <div class="card-body cc-experience-header">
-                <p><%= "#{job.date_from&.strftime("%B %Y")} - #{job.date_to&.strftime("%B %Y")}" %></p>
-                <div class="h5"><%= job.firm %></div>
-              </div>
-            </div>
-            <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-              <div class="card-body">
-                <div class="h5"><%= job.position %></div>
-                <p><%= job.place %></p>
-                <p><%= job.description %></p>
+              <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                <div class="card-body">
+                  <div class="h5"><%= project.technologies %></div>
+                  <p><%= project.description %></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+
+
+  <div class="section" id="experience">
+    <div class="container cc-experience">
+      <div class="h4 text-center mb-4 title">Work Experience</div>
+      <% if @resume.jobs.present? %>
+        <% @resume.jobs.each do |job| %>
+          <div class="card">
+            <div class="row">
+              <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                <div class="card-body cc-experience-header">
+                  <p><%= "#{job.date_from&.strftime("%B %Y")} - #{job.date_to&.strftime("%B %Y")}" %></p>
+                  <div class="h5"><%= job.firm %></div>
+                </div>
+              </div>
+              <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                <div class="card-body">
+                  <div class="h5"><%= job.position %></div>
+                  <p><%= job.place %></p>
+                  <p><%= job.description %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 
 
 
     
   
   
-    <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
-    <script src="js/core/popper.min.js?ver=1.1.0"></script>
-    <script src="js/core/bootstrap.min.js?ver=1.1.0"></script>
-    <script src="js/now-ui-kit.js?ver=1.1.0"></script>
-    <script src="js/aos.js?ver=1.1.0"></script>
-    <script src="scripts/main.js?ver=1.1.0"></script>
-</body>
+  <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
+  <script src="js/core/popper.min.js?ver=1.1.0"></script>
+  <script src="js/core/bootstrap.min.js?ver=1.1.0"></script>
+  <script src="js/now-ui-kit.js?ver=1.1.0"></script>
+  <script src="js/aos.js?ver=1.1.0"></script>
+  <script src="scripts/main.js?ver=1.1.0"></script>
+</div>

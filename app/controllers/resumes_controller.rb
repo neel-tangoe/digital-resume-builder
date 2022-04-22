@@ -1,10 +1,17 @@
 class ResumesController < ApplicationController
 
   def index
+    @nav_header_menus = [
+                          {:href => root_path, :label => "Home", :arrowBack => true}
+                        ]
     @resumes = current_user.resumes
   end
 
   def show
+    @nav_header_menus = [
+                          {:href => choose_your_template_resume_path, :label => "My Resumes", :arrowBack => true}
+                        ]
+    
     @resume = current_user.resumes.find(params[:id])
     @template_type = params[:type]
   end
@@ -13,11 +20,10 @@ class ResumesController < ApplicationController
     @resume_type = params[:resume_type]
     @resume = current_user.resumes.find(params[:id])
     respond_to do |format|
-      format.html
-      format.pdf do
+      format.html do
         render :pdf => "#{@resume.name}",
                :layout => "pdf",
-               :template => "pdf/resume_template1",
+               :template => "pdf/download_templates",
                :margin => { :top => 10, :bottom => 10, :left => 10, :right => 10},
                :viewport_size => '1280x1024',
                disposition: 'attachment'
@@ -26,6 +32,7 @@ class ResumesController < ApplicationController
   end
 
   def new
+    common_desktop_nav_header
     @resume_type = params[:type]
     if current_user.present?
       @step = 1
@@ -76,10 +83,15 @@ class ResumesController < ApplicationController
     redirect_to resumes_path
   end
 
-  def choose_template
-  end
+  
 
   def choose_your_template
+    common_desktop_nav_header
+    @resume = current_user.resumes.find(params[:id])
+  end
+
+  def choose_template_to_be_downloaded
+    common_desktop_nav_header
     @resume = current_user.resumes.find(params[:id])
   end
 
@@ -103,6 +115,9 @@ class ResumesController < ApplicationController
   end
 
   def choose_templates
+    @nav_header_menus = [
+                          {:href => root_path, :label => "Home", :arrowBack => true},
+                        ]
   end
 
   private

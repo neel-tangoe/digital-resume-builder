@@ -1,3 +1,13 @@
+<div aria-labelledby="myModalLabel" class="modal fade" id="chooseDownloadTemplateModal" role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= render "resumes/choose_template_to_be_downloaded", resume: resume %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4 pb-1">
   <div class="items-message-group wb-rounded">
     <div class="item-header row mx-0 align-items-center">
@@ -27,9 +37,15 @@
         <a class="btn btn-primary btn-block btn-right-arrow" href="<%= choose_your_template_resume_path(resume)%>">
           <%= "Open Resume" %>
         </a>
+        <button class="btn btn-light btn-block btn-right-arrow" data-target="#chooseDownloadTemplateModal" data-toggle="modal"type="button">
+          <%= "Download" %>
+        </button>
         <%= link_to "Delete", resume, method: :delete, class: 'btn btn-danger btn-block btn-right-arrow', data: {:confirm => 'Are you sure?'} %>
-        <%= link_to 'Download', download_resume_path(resume.id, :format=> 'pdf'), class: 'btn btn-warning btn-block btn-right-arrow' %>
+        
       </div>
     </div>
   </div>
 </div>
+        
+          
+

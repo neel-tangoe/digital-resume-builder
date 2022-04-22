@@ -1,0 +1,9 @@
+<% if @resume_type == "Normal" %>
+  <%= render "pdf/normal_template" %>
+<% elsif @resume_type == "Intermediate" %>
+  <%= render "pdf/intermediate_template" %>
+<% elsif @resume_type == "Advanced" %>
+  <%= render "pdf/advance_template" %>
+<% elsif @resume_type == "Pro" %>
+  <%= render "pdf/pro_template" %>
+<% end %>
