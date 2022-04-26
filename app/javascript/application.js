@@ -3,6 +3,12 @@
 //= require jquery
 //= require jquery_ujs
 
+$(document).ready(function(){
+  setTimeout(function(){
+    $('.noticeFlashMsg').remove();
+  }, 3000);
+ })
+
 $(document).on("keyup", "#resume_name", function(){
 	var resume_name = $(this).val();
   $(".resume_name").text(resume_name);

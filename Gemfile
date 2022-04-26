@@ -8,7 +8,7 @@ gem "rails", "~> 7.0.1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-
+gem 'pry'
 # Use mysql as the database for Active Record
 gem "mysql2", "~> 0.5"
 

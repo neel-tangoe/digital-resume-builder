@@ -1,5 +1,6 @@
 <section class="section-details" >
   <%= form_for(@resume, :url => (@resume.new_record? ? resumes_path : resume_path(@resume)), :method => (@resume.new_record? ? "POST" : "PUT") ) do |f| %>
+  <%#= form_with(model:@resume) do |f|%> 
     <%= hidden_field_tag "step", @step.to_i %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <div class="row">

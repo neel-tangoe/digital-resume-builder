@@ -17,6 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       email: params['user']['email'],
       password: params['user']['password'],
       password_confirmation: params['user']['password_confirmation'])
+    redirect_to root_path
   end
 
   # GET /resource/edit

@@ -13,143 +13,132 @@
     html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     </style>
   </head>
-<body class="w3-light-grey">
+  <body class="w3-light-grey">
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-  
-    <!-- Left Column -->
-    <div class="w3-third">
-    
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <% if @resume.avtar.present? %>
-            <div class='center'><%= image_tag @resume.avtar,:width=>"445", :height=>"320" %></div>
-          <% end %>
-        </div>
-
-        <div class="w3-container">
-          <h2 class="w3-text-grey w3-padding-16"><i class="bi bi-person fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i><%= @resume.name %></h2>
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Developer</p>
-          <hr>
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>About Me</b></p>
-          <div class="w3-container">
-            <p><%= @resume.general_info %></p>
-          </div>
-          <hr>
-
-
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Basic Information</b></p>
-          <div class="w3-container">
-            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Developer</p>
-            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.email %></p>
-            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.phone_number %></p>
-            <p><i class="bi bi-calendar green-color fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.birthdate %></p>
-            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.address %></p>
-            <p><i class="bi bi-globe fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.country %></p>
-            <p><i class="fa fa-male fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.gender %></p>
-            <p><i class="fa fa-music fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.interests %></p>
-            <p><i class="fa fa-website fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.website %></p>
-          </div>
-          <hr>
-
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <% if @resume.skills.present? %>
-            <% @resume.skills.each do |skill| %>
-              <p><%= skill.title %></p>
-              <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:<%= skill.percent %>%;"><%= skill.percent %></div>
-              </div>
-            <% end %>
-          <% end %>
-          <hr>
-
-
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <% if @resume.languages.present? %>
-            <% @resume.languages.each do |language| %>
-              <p><%= language.name %></p>
-              <div class="w3-light-grey w3-round-xlarge">
-                <div class="w3-round-xlarge w3-teal" ></div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div><br>
-    </div>
-
-    <!-- End Left Column -->
-
-    <!-- Right Column -->
-    <div class="w3-twothird">
-    
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-        <% if @resume.jobs.present? %>
-          <% @resume.jobs.each do |job| %>
-            <div class="w3-container">
-              <h4 class="w3-opacity"><b><%= job.firm %></b></h4>
-              <h5 class="w3-text-teal"><b><%= job.position %></b></h5>
-              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= "#{job.date_from&.strftime("%B %Y")} - #{job.date_to&.strftime("%B %Y")}" %></h6>
-              <p><%= job.description %></p>
-              <hr>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <!-- The Grid -->
+      <div class="w3-row-padding">
+      
+        <!-- Left Column -->
+        <div class="w3-third">
         
+          <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-display-container">
+              <% if @resume.avtar.present? %>
+                <div class='center'><%= image_tag @resume.avtar,:width=>"200", :height=>"320" %></div>
+              <% end %>
+            </div>
 
-      <div class="w3-container w3-card w3-white">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
-          <% if @resume.educations.present? %>
-            <% @resume.educations.each do |education| %>
+            <div class="w3-container">
+              <h2 class="w3-text-grey w3-padding-16"><i class="bi bi-person fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i><%= @resume.name %></h2>
+              <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Developer</p>
+              <hr>
+              <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>About Me</b></p>
               <div class="w3-container">
-                <h4><span class="w3-opacity"><b><%= education.level %> - <%= education.course %></b></span></h4>
-                <h5 class="w3-text-teal"><b><%= education.place %></b></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= "#{education.date_from&.strftime("%B %Y")} - #{education.date_to&.strftime("%B %Y")}" %></h6>
-                <p><%= education.description %></p>
-                <hr>
+                <p><%= @resume.general_info %></p>
               </div>
-            <% end %>
-          <% end %>
-      </div>
+              <hr>
 
-      <div class="w3-container w3-card w3-white w3-margin-top">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
-          <% if @resume.projects.present? %>
-            <% @resume.projects.each do |project| %>
+
+              <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Basic Information</b></p>
               <div class="w3-container">
-                <h4 class="w3-opacity"><b><%= project.client %></b></h4>
-                <h5 class="w3-text-teal"><%= project.technologies %></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= "#{project.date_from&.strftime("%B %Y")} - #{project.date_to&.strftime("%B %Y")}" %></h6>
-                <p><%= project.description %></p>
-                <hr>
+                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Software Developer</p>
+                <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.email %></p>
+                <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.phone_number %></p>
+                <p><i class="bi bi-calendar green-color fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.birthdate %></p>
+                <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.address %></p>
+                <p><i class="bi bi-globe fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.country %></p>
+                <p><i class="fa fa-male fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.gender %></p>
+                <p><i class="fa fa-music fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.interests %></p>
+                <p><i class="fa fa-website fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @resume.website %></p>
               </div>
+              <hr>
+
+              <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+              <% if @resume.skills.present? %>
+                <% @resume.skills.each do |skill| %>
+                  <p><%= skill.title %></p>
+                  <div class="w3-light-grey w3-round-xlarge w3-small">
+                    <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:<%= skill.percent %>%;"><%= skill.percent %></div>
+                  </div>
+                <% end %>
+              <% end %>
+              <hr>
+
+
+              <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+              <% if @resume.languages.present? %>
+                <% @resume.languages.each do |language| %>
+                  <p><%= language.name %></p>
+                  <div class="w3-light-grey w3-round-xlarge">
+                    <div class="w3-round-xlarge w3-teal" ></div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div><br>
+        </div>
+
+        <!-- End Left Column -->
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+        
+          <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+            <% if @resume.jobs.present? %>
+              <% @resume.jobs.each do |job| %>
+                <div class="w3-container">
+                  <h4 class="w3-opacity"><b><%= job.firm %></b></h4>
+                  <h5 class="w3-text-teal"><b><%= job.position %></b></h5>
+                  <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= "#{job.date_from&.strftime("%B %Y")} - #{job.date_to&.strftime("%B %Y")}" %></h6>
+                  <p><%= job.description %></p>
+                  <hr>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+            
+
+          <div class="w3-container w3-card w3-white">
+            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+              <% if @resume.educations.present? %>
+                <% @resume.educations.each do |education| %>
+                  <div class="w3-container">
+                    <h4><span class="w3-opacity"><b><%= education.level %> - <%= education.course %></b></span></h4>
+                    <h5 class="w3-text-teal"><b><%= education.place %></b></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= "#{education.date_from&.strftime("%B %Y")} - #{education.date_to&.strftime("%B %Y")}" %></h6>
+                    <p><%= education.description %></p>
+                    <hr>
+                  </div>
+                <% end %>
+              <% end %>
+          </div>
+
+          <div class="w3-container w3-card w3-white w3-margin-top">
+            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
+              <% if @resume.projects.present? %>
+                <% @resume.projects.each do |project| %>
+                  <div class="w3-container">
+                    <h4 class="w3-opacity"><b><%= project.client %></b></h4>
+                    <h5 class="w3-text-teal"><%= project.technologies %></h5>
+                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= "#{project.date_from&.strftime("%B %Y")} - #{project.date_to&.strftime("%B %Y")}" %></h6>
+                    <p><%= project.description %></p>
+                    <hr>
+                  </div>
+                <% end %>
+              <% end %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </body>
+</html>
 
             
 
 
-<!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p>Find me on social media.</p>
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
- <p class="w3-small">Share Your Resume</p>
-  <%= social_share_button_tag('Share to Facebook', :url => share_resume_path(@resume), desc: @resume.name) %>
-  <%= link_to "Share Now", share_resume_path(@resume), class: "w3-button w3-round-xxlarge w3-small w3-light-grey w3-margin-bottom" %>
- </footer>
 
-</body>
-</html>
+

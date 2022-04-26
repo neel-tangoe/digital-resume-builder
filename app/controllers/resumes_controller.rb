@@ -20,7 +20,7 @@ class ResumesController < ApplicationController
     @resume_type = params[:resume_type]
     @resume = current_user.resumes.find(params[:id])
     respond_to do |format|
-      format.html do
+      format.pdf do
         render :pdf => "#{@resume.name}",
                :layout => "pdf",
                :template => "pdf/download_templates",
@@ -65,7 +65,7 @@ class ResumesController < ApplicationController
     if @resume.update(resume_params)
       step = params[:proceed_next] ? params[:step].to_i+1 : params[:step].to_i
       url = params[:proceed_next] ? edit_resume_path(@resume, step:  step) : resume_path(@resume)
-      redirect_to url
+      redirect_to url 
     else
       render 'edit'
     end
